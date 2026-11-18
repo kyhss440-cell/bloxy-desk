@@ -1,0 +1,291 @@
+import { useState, useMemo } from 'react';
+import trainerAtlasImg from '../assets/images/trainer_atlas_banner_1794656940772.jpg';
+import { BLOX_FIGHTING_STYLES } from '../data/fightingStylesData';
+import { FightingStyle } from '../types/bloxfruits';
+import { TrainerNpcPortrait } from './FightingStyleArtwork';
+import { sounds } from '../utils/audio';
+import { MapPin, Compass, Coins, AlertTriangle, Navigation, ChevronRight } from 'lucide-react';
+
+interface FightingStyleTrainerMapProps {
+  initialStyleId?: string | null;
+  onInspectStyle: (style: FightingStyle) => void;
+}
+
+const PIN_COORDINATES: Record<string, { x: string; y: string }> = {
+  combat: { x: '13%', y: '34%' },
+  dark_step: { x: '22%', y: '52%' },
+  advanced_combat: { x: '28%', y: '36%' },
+  water_kung_fu: { x: '34%', y: '62%' },
+  electric: { x: '43%', y: '25%' },
+  dragon_breath: { x: '58%', y: '44%' },
+  superhuman: { x: '72%', y: '28%' },
+  death_step: { x: '84%', y: '40%' },
+  sharkman_karate: { x: '76%', y: '60%' },
+  electric_claw: { x: '48%', y: '74%' },
+  godhuman: { x: '56%', y: '82%' },
+  dragon_talon: { x: '66%', y: '72%' },
+  sanguine_art: { x: '36%', y: '80%' },
+};
+
+function getThemeDotColor(theme: FightingStyle['theme']) {
+  switch (theme) {
+    case 'crimson':
+      return 'bg-red-500 border-red-300 shadow-[0_0_16px_rgba(239,68,68,0.85)]';
+    case 'purple':
+      return 'bg-purple-500 border-purple-300 shadow-[0_0_16px_rgba(168,85,247,0.85)]';
+    case 'electric':
+    default:
+      return 'bg-sky-400 border-sky-200 shadow-[0_0_16px_rgba(56,189,248,0.85)]';
+  }
+}
+
+export default function FightingStyleTrainerMap({
+  initialStyleId,
+  onInspectStyle,
+}: FightingStyleTrainerMapProps) {
+  const [seaFilter, setSeaFilter] = useState<'All' | '1' | '2' | '3'>('All');
+  const [selectedId, setSelectedId] = useState<string>(initialStyleId || 'godhuman');
+
+  const visibleTrainers = useMemo(() => {
+    return BLOX_FIGHTING_STYLES.filter(
+      (s) => seaFilter === 'All' || s.sea.toString() === seaFilter
+    );
+  }, [seaFilter]);
+
+  const activeTrainer =
+    visibleTrainers.find((s) => s.id === selectedId) ||
+    visibleTrainers[0] ||
+    BLOX_FIGHTING_STYLES[0];
+
+  return (
+    <div className="space-y-6">
+      {/* Sea Filter Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 className="text-2xl font-black text-white flex items-center gap-2.5">
+            <Compass className="w-6 h-6 text-sky-400" />
+            Interactive Three-Sea Trainer Location Atlas
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            Click any beacon on the atlas map or pick a trainer below to inspect NPC coordinates, exact island landmarks, walking directions, and costs.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-1 p-1 bg-[#04060d] rounded-xl border border-slate-800 text-xs self-start shrink-0">
+          {(['All', '1', '2', '3'] as const).map((sea) => (
+            <button
+              key={sea}
+              onClick={() => {
+                setSeaFilter(sea);
+                sounds.playClick();
+              }}
+              className={`px-3 py-1.5 rounded-lg font-semibold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
+                seaFilter === sea
+                  ? 'bg-sky-500 text-slate-950 font-bold'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              {sea === 'All' ? 'All Seas (13)' : `Sea ${sea}`}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Interactive Atlas Map + Selected Trainer Spotlight */}
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+        {/* Visual Interactive Map */}
+        <div className="xl:col-span-7 relative rounded-3xl overflow-hidden border border-slate-800 bg-[#04060d] min-h-[340px] sm:min-h-[420px]">
+          <img
+            src={trainerAtlasImg}
+            alt="Blox Fruits Three-Sea Fighting Style Trainer Atlas"
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 w-full h-full object-cover opacity-55"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#04060d] via-[#04060d]/35 to-[#04060d]/60 pointer-events-none" />
+
+          {/* Region Reference Labels */}
+          <div className="relative z-10 flex items-center justify-between px-4 pt-4 text-[11px] font-bold uppercase tracking-wider text-slate-300 pointer-events-none">
+            <span>West · First Sea Islands</span>
+            <span>Center · Third Sea Sanctuary</span>
+            <span>North-East · Second Sea Peaks</span>
+          </div>
+
+          {/* Interactive Trainer Beacons */}
+          <div className="relative z-20 w-full h-[300px] sm:h-[370px]">
+            {visibleTrainers.map((trainer) => {
+              const pos = PIN_COORDINATES[trainer.id] || { x: '50%', y: '50%' };
+              const isSelected = activeTrainer.id === trainer.id;
+              return (
+                <button
+                  key={trainer.id}
+                  type="button"
+                  onClick={() => {
+                    sounds.playClick();
+                    setSelectedId(trainer.id);
+                  }}
+                  style={{ left: pos.x, top: pos.y }}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer focus:outline-none"
+                  title={`${trainer.trainerGuide.npcName} (${trainer.name})`}
+                >
+                  <span
+                    className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 flex items-center justify-center transition-transform ${
+                      isSelected ? 'scale-125 ring-4 ring-white/25' : 'group-hover:scale-115'
+                    } ${getThemeDotColor(trainer.theme)}`}
+                  />
+                  <span
+                    className={`mt-1 px-2 py-0.5 rounded-md text-[10px] font-bold whitespace-nowrap block transition-colors border ${
+                      isSelected
+                        ? 'bg-slate-950/95 border-sky-400 text-white shadow-lg'
+                        : 'bg-[#04060d]/90 border-slate-800 text-slate-300 group-hover:text-white'
+                    }`}
+                  >
+                    {trainer.name}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Active Trainer Location Dossier */}
+        <div className="xl:col-span-5 p-6 rounded-3xl bg-[#070b17] border border-slate-800 flex flex-col justify-between space-y-5">
+          <div className="space-y-4">
+            <div className="flex items-start justify-between gap-4 pb-4 border-b border-slate-800/80">
+              <div className="flex items-center gap-3.5 min-w-0">
+                <TrainerNpcPortrait style={activeTrainer} size="lg" />
+                <div className="min-w-0">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-sky-400">
+                    Sea {activeTrainer.sea} · {activeTrainer.island}
+                  </div>
+                  <h3 className="text-xl font-black text-white truncate">
+                    {activeTrainer.trainerGuide.npcName}
+                  </h3>
+                  <span className="text-xs text-purple-300 font-semibold block truncate">
+                    Teaches: {activeTrainer.name}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3 text-xs">
+              <div>
+                <span className="text-slate-400 font-semibold flex items-center gap-1.5 mb-1">
+                  <MapPin className="w-3.5 h-3.5 text-sky-400" />
+                  Exact Location
+                </span>
+                <p className="text-white font-medium">{activeTrainer.trainerGuide.exactLocation}</p>
+              </div>
+
+              <div>
+                <span className="text-slate-400 font-semibold flex items-center gap-1.5 mb-1">
+                  <Navigation className="w-3.5 h-3.5 text-purple-400" />
+                  Directions to Reach Trainer
+                </span>
+                <p className="text-slate-300 leading-relaxed">
+                  {activeTrainer.trainerGuide.directions}
+                </p>
+              </div>
+
+              {activeTrainer.trainerGuide.altThirdSeaLocation && (
+                <div>
+                  <span className="text-sky-400 font-semibold block mb-0.5">
+                    Alternate Relocation NPC
+                  </span>
+                  <p className="text-slate-300">{activeTrainer.trainerGuide.altThirdSeaLocation}</p>
+                </div>
+              )}
+
+              {activeTrainer.trainerGuide.outdatedNote && (
+                <div className="p-3 rounded-xl bg-red-950/30 border border-red-500/35 text-red-200 flex items-start gap-2">
+                  <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                  <p>{activeTrainer.trainerGuide.outdatedNote}</p>
+                </div>
+              )}
+
+              <div className="pt-3 border-t border-slate-800/80 grid grid-cols-2 gap-3">
+                <div>
+                  <span className="text-slate-400 flex items-center gap-1 mb-0.5">
+                    <Coins className="w-3.5 h-3.5 text-amber-400" />
+                    Price
+                  </span>
+                  <span className="font-bold text-amber-400 tabular-nums">
+                    {activeTrainer.costBeli > 0 ? `$${activeTrainer.costBeli.toLocaleString()}` : '$0 Beli'}
+                    {activeTrainer.costFragments > 0 && ` + ${activeTrainer.costFragments.toLocaleString()} Frags`}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-slate-400 block mb-0.5">Items / Prereqs</span>
+                  <span className="font-semibold text-slate-200 line-clamp-2">
+                    {activeTrainer.requiredItems.join(', ')}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onClick={() => {
+              sounds.playClick();
+              onInspectStyle(activeTrainer);
+            }}
+            className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-400 hover:to-purple-500 text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer transition-all"
+          >
+            <span>Open Full {activeTrainer.name} Guide</span>
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* Complete Trainer Directory Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {visibleTrainers.map((t) => {
+          const isSelected = activeTrainer.id === t.id;
+          return (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setSelectedId(t.id);
+              }}
+              className={`text-left p-4 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between space-y-3 ${
+                isSelected
+                  ? 'bg-[#0c1226] border-sky-400/70 shadow-lg'
+                  : 'bg-[#070b17] border-slate-800 hover:border-slate-700'
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <TrainerNpcPortrait style={t} size="sm" />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-2 text-[11px] font-bold">
+                    <span className="text-sky-400">Sea {t.sea} · {t.island}</span>
+                  </div>
+                  <h4 className="text-sm font-extrabold text-white truncate">
+                    {t.trainerGuide.npcName}
+                  </h4>
+                  <p className="text-xs text-purple-300 font-semibold truncate">{t.name}</p>
+                </div>
+              </div>
+
+              <p className="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
+                {t.trainerGuide.exactLocation}
+              </p>
+
+              <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] tabular-nums">
+                <span className="font-bold text-amber-400">
+                  {t.costBeli > 0 ? `$${t.costBeli.toLocaleString()}` : '$0'}
+                  {t.costFragments > 0 ? ` + ${t.costFragments.toLocaleString()} Frags` : ''}
+                </span>
+                <span className="text-slate-400 truncate max-w-[140px]">
+                  {t.requiredMasteryToUnlock > 0
+                    ? `${t.requiredMasteryToUnlock} Mast. Prereq`
+                    : 'No Style Prereq'}
+                </span>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

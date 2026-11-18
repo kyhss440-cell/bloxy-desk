@@ -1,0 +1,6 @@
+{
+  "name": "BLOX HUB – The Ultimate Blox Fruits Guide",
+  "description": "The premier Blox Fruits companion encyclopedia with comprehensive guides for fruits, races, swords, bosses, islands, trading calculators, and tier lists.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
