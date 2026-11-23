@@ -236,6 +236,20 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
       { stat: 'Health & Energy', value: '+100 HP & +100 Energy' },
     ],
   },
+  {
+    id: 'pink_coat',
+    name: 'Pink Coat',
+    rarity: 'Uncommon',
+    sea: 1,
+    location: 'Prison Island (First Sea)',
+    howToObtain: 'Dropped by Warden or Chief Warden at Prison Island in First Sea.',
+    dropRate: '10% Drop Chance',
+    description: 'Classic First Sea prison pink coat granting basic health and energy bonuses.',
+    buffs: [
+      { stat: 'Health', value: '+100 HP' },
+      { stat: 'Energy', value: '+100 Energy' },
+    ],
+  },
 
   // ==========================================================
   // 3. RARE ACCESSORIES (25)
@@ -385,6 +399,20 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
       { stat: 'All Damage', value: '+7.5% Damage' },
       { stat: 'Movement Speed', value: '+17.5% Sprint Speed' },
       { stat: 'Health & Energy', value: '+100 HP & +100 Energy' },
+    ],
+  },
+  {
+    id: 'marine_cap',
+    name: 'Marine Cap',
+    rarity: 'Rare',
+    sea: 1,
+    location: 'Marine Fortress / Marine Bases (First Sea)',
+    howToObtain: 'Dropped by Marine Captains and Vice Admiral in First Sea.',
+    dropRate: '5% Drop Chance',
+    description: 'Standard Marine officer cap boosting energy and defense in First Sea.',
+    buffs: [
+      { stat: 'Defense', value: '+5% Damage Resistance' },
+      { stat: 'Energy', value: '+150 Energy' },
     ],
   },
   {

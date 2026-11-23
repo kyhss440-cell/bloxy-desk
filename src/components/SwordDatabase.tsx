@@ -81,7 +81,6 @@ function getRarityAccent(rarity: FruitRarity): string {
 
 export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDatabaseProps) {
   const [search, setSearch] = useState('');
-  const [seaFilter, setSeaFilter] = useState<'All' | '1' | '2' | '3'>('All');
   const [rarityFilter, setRarityFilter] = useState<FruitRarity | 'All'>('All');
   const [collectionFilter, setCollectionFilter] = useState<SpecialCollectionKey | 'all'>('all');
   const [ownedFilter, setOwnedFilter] = useState<CollectionStatusFilter>('all');
@@ -115,7 +114,6 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
 
   const resetFilters = () => {
     setSearch('');
-    setSeaFilter('All');
     setRarityFilter('All');
     setCollectionFilter('all');
     setOwnedFilter('all');
@@ -154,7 +152,6 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
         s.m1.name.toLowerCase().includes(q) ||
         s.moves.some((m) => m.name.toLowerCase().includes(q));
 
-      const matchSea = seaFilter === 'All' || s.sea.toString() === seaFilter;
       const matchRarity = rarityFilter === 'All' || s.rarity === rarityFilter;
       const matchCollection =
         collectionFilter === 'all' || s.specialCollections.includes(collectionFilter);
@@ -164,7 +161,7 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
         (ownedFilter === 'collected' && isOwned) ||
         (ownedFilter === 'missing' && !isOwned);
 
-      return matchSearch && matchSea && matchRarity && matchCollection && matchOwned;
+      return matchSearch && matchRarity && matchCollection && matchOwned;
     });
 
     return [...list].sort((a, b) => {
@@ -201,7 +198,7 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
         }
       }
     });
-  }, [search, seaFilter, rarityFilter, collectionFilter, ownedFilter, sortBy, collectedIds]);
+  }, [search, rarityFilter, collectionFilter, ownedFilter, sortBy, collectedIds]);
 
   const activeSword = useMemo(
     () => BLOX_SWORDS_DATABASE.find((s) => s.id === activeSwordId) || null,
@@ -317,26 +314,6 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
                 <option value="name_asc">Name: A to Z</option>
               </select>
             </div>
-
-            {/* Sea Filter */}
-            <div className="flex items-center gap-1 p-1 bg-slate-950 rounded-xl border border-slate-800 text-xs overflow-x-auto shrink-0">
-              {(['All', '1', '2', '3'] as const).map((sea) => (
-                <button
-                  key={sea}
-                  onClick={() => {
-                    setSeaFilter(sea);
-                    sounds.playClick();
-                  }}
-                  className={`px-3 py-1.5 rounded-lg font-semibold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
-                    seaFilter === sea
-                      ? 'bg-cyan-500 text-slate-950 font-bold'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  {sea === 'All' ? 'All Seas' : `Sea ${sea}`}
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Rarity Filter Tabs + Collection Status Filter */}
@@ -423,7 +400,6 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
         </span>
 
         {(search ||
-          seaFilter !== 'All' ||
           rarityFilter !== 'All' ||
           collectionFilter !== 'all' ||
           ownedFilter !== 'all' ||

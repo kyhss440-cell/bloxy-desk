@@ -288,6 +288,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Floating Turtle Mansion (Crypt Master Chamber)',
     respawnTime: 'Quest Trial Spawn (All 6 Alucard Fragments)',
+    image: '/assets/aistudio/image_e45723c2.png',
     isRaidBoss: false,
     strategy:
       'Final boss of the Cursed Dual Katana puzzle. Can only be damaged cleanly by Yama, Tushita, or CDK skills—kite in circles inside the crypt room.',
@@ -306,6 +307,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Ice Cream Land (Sea of Treats · Third Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_34e074cf.png',
     isRaidBoss: false,
     strategy:
       'Wields the Buddy Sword with fast lightning-fire slashes. Also required as the final target for the "Soulless" Tushita CDK trial!',
@@ -324,6 +326,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Floating Turtle Secret Temple (Third Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_75840d2d.png',
     isRaidBoss: false,
     strategy:
       'Unlocked permanently behind the secret temple door after lighting all 5 Holy Torches during rip_indra’s fog. Uses fast Tushita dash slashes.',
@@ -342,6 +345,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Hydra / Floating Turtle Secret Cavern (Third Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_6357fc24.png',
     isRaidBoss: false,
     strategy:
       'Dashes swiftly across his underground arena with Canvander thrusts. Defeating him opens his personal portal shortcuts back to Mansion.',
@@ -360,6 +364,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Floating Turtle · Mansion Courtyard (Third Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_d653e141.png',
     isRaidBoss: false,
     strategy:
       'Required for the Citizen Quest (Musketeer Hat & Instinct V2). Bait him onto the stone courtyard steps for safe M1 grinding.',
@@ -474,6 +479,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Port Town Fortress (Third Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/stone_boss.jpg',
     isRaidBoss: false,
     strategy:
       'First Third Sea boss encountered right at Port Town. Uses Flame blasts—drops one of the best speed accessories in the game (Pilot Helmet).',
@@ -759,6 +765,8 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Prison Island Courtyard (First Sea)',
     respawnTime: '20 Minutes',
+    image: '/assets/aistudio/image_6aa9cc1d.png',
+    imageFit: 'contain',
     isRaidBoss: false,
     strategy:
       'First of the three Prison courtyard bosses. Simple M1 kite with Light, Ice, or Flame.',
@@ -777,6 +785,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Jungle Secret Basement Temple (First Sea)',
     respawnTime: '30 Minutes (After Jungle 5-Button & Relic Quest)',
+    image: '/assets/aistudio/image_daa7be73.png',
     isRaidBoss: false,
     strategy:
       'High-damage sword boss capable of two-shotting low-level players. Pull him to the narrow stairs so he gets stuck while you strike!',
@@ -795,6 +804,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Marine Fortress (First Sea)',
     respawnTime: '20 Minutes',
+    image: '/assets/aistudio/image_1f82387c.png',
     isRaidBoss: false,
     strategy:
       'Guards the upper Marine courtyard. Drops the Coat accessory (+10% Melee damage & +200 Energy).',
@@ -813,6 +823,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Middle Town Tiny Island (First Sea)',
     respawnTime: '20 Minutes',
+    image: '/assets/aistudio/image_f2b27fba.png',
     isRaidBoss: false,
     strategy:
       'Hidden on the small island outside Middle Town harbor. Required step in the Rich Man Saber Expert quest!',
@@ -831,6 +842,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Frozen Village Plateau (First Sea)',
     respawnTime: '20 Minutes',
+    image: '/assets/aistudio/image_fcbbda31.png',
     isRaidBoss: false,
     strategy:
       'Uses Ice stomp knockbacks near the village houses. Kite along the lower snow ridge for easy kills.',
@@ -849,6 +861,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Middle Town Docks (First Sea)',
     respawnTime: 'Every 75 Minutes',
+    image: '/assets/aistudio/image_5da483a3.png',
     isRaidBoss: false,
     strategy:
       'Spawns inside Middle Town every 75 minutes with rapid spinning Shark Saw lunges. Climb onto Middle Town building roofs to chip safely.',
@@ -867,6 +880,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Jungle Island · Banana Tree Arena (First Sea)',
     respawnTime: 'Secret Spawn (Shake Banana Tree until overflowing)',
+    image: '/assets/aistudio/image_475097b4.png',
     isRaidBoss: false,
     strategy:
       'Empowered secret Jungle boss triggered by M1-shaking the special Banana Tree near the Gorilla King ridge. Uses faster heavy shockwave slams and rewards Jungle Star progression.',
@@ -885,6 +899,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Pirate Village Center (First Sea)',
     respawnTime: '15 Minutes',
+    image: '/assets/aistudio/image_63b41940.png',
     isRaidBoss: false,
     strategy:
       'Immune to un-Aura Sword hits thanks to his Chop passive! Use Fighting Style M1s or Fruit skills instead of Katanas.',
@@ -903,6 +918,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Jungle Island Back Ridge (First Sea)',
     respawnTime: '10 Minutes',
+    image: '/assets/aistudio/image_be3e1e79.png',
     isRaidBoss: false,
     strategy:
       'The very first island boss in Blox Fruits. Circle-strafe his ground slams for fast starter Beli and Jungle levels.',

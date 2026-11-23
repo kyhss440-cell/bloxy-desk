@@ -24,7 +24,6 @@ const RARITY_TABS: RarityFilter[] = ['All', 'Common', 'Uncommon', 'Rare', 'Legen
 export default function AccessoryDatabase({ onSelectAccessory }: AccessoryDatabaseProps) {
   const [search, setSearch] = useState('');
   const [rarityFilter, setRarityFilter] = useState<RarityFilter>('All');
-  const [seaFilter, setSeaFilter] = useState<'All' | '1' | '2' | '3'>('All');
   const [sortBy, setSortBy] = useState<AccessorySort>('rarity_desc');
 
   const rarityCounts = useMemo(() => {
@@ -55,8 +54,7 @@ export default function AccessoryDatabase({ onSelectAccessory }: AccessoryDataba
           (b) => b.stat.toLowerCase().includes(q) || b.value.toLowerCase().includes(q)
         );
       const matchRarity = rarityFilter === 'All' || a.rarity === rarityFilter;
-      const matchSea = seaFilter === 'All' || a.sea.toString() === seaFilter;
-      return matchSearch && matchRarity && matchSea;
+      return matchSearch && matchRarity;
     }).sort((a, b) => {
       if (sortBy === 'name_asc') return a.name.localeCompare(b.name);
       if (sortBy === 'sea_asc') {
@@ -70,12 +68,11 @@ export default function AccessoryDatabase({ onSelectAccessory }: AccessoryDataba
       const diff = RARITY_ORDER[b.rarity] - RARITY_ORDER[a.rarity];
       return diff !== 0 ? diff : a.name.localeCompare(b.name);
     });
-  }, [search, rarityFilter, seaFilter, sortBy]);
+  }, [search, rarityFilter, sortBy]);
 
   const resetFilters = () => {
     setSearch('');
     setRarityFilter('All');
-    setSeaFilter('All');
     setSortBy('rarity_desc');
     sounds.playClick();
   };
@@ -174,23 +171,6 @@ export default function AccessoryDatabase({ onSelectAccessory }: AccessoryDataba
             />
           </div>
 
-          <div className="flex items-center gap-1.5 p-1 bg-slate-950 rounded-xl border border-slate-800 text-xs shrink-0">
-            {(['All', '1', '2', '3'] as const).map((sea) => (
-              <button
-                key={sea}
-                onClick={() => {
-                  setSeaFilter(sea);
-                  sounds.playClick();
-                }}
-                className={`px-3 py-1.5 rounded-lg font-semibold whitespace-nowrap cursor-pointer transition-colors ${
-                  seaFilter === sea ? 'bg-rose-500 text-white font-bold' : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {sea === 'All' ? 'All Seas' : `Sea ${sea}`}
-              </button>
-            ))}
-          </div>
-
           <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 shrink-0">
             <ArrowUpDown className="w-3.5 h-3.5 text-rose-400 shrink-0" />
             <select
@@ -216,7 +196,7 @@ export default function AccessoryDatabase({ onSelectAccessory }: AccessoryDataba
         <span className="tabular-nums">
           Showing <strong className="text-white">{filteredAccessories.length}</strong> of {rarityCounts.All} accessories
         </span>
-        {(search || rarityFilter !== 'All' || seaFilter !== 'All') && (
+        {(search || rarityFilter !== 'All') && (
           <button
             onClick={resetFilters}
             className="flex items-center gap-1.5 text-rose-300 hover:text-white font-semibold cursor-pointer whitespace-nowrap"

@@ -65,7 +65,6 @@ export default function FightingStylesDatabase() {
 
   // Search & Filter states
   const [searchQuery, setSearchQuery] = useState('');
-  const [seaFilter, setSeaFilter] = useState<SeaFilter>('All');
   const [masteryFilter, setMasteryFilter] = useState<MasteryFilter>('All');
   const [lockFilter, setLockFilter] = useState<LockFilter>('All');
 
@@ -128,7 +127,6 @@ export default function FightingStylesDatabase() {
   const filteredStyles = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     return BLOX_FIGHTING_STYLES.filter((style) => {
-      if (seaFilter !== 'All' && style.sea.toString() !== seaFilter) return false;
       if (masteryFilter === 'low' && style.maxMoveMastery > 150) return false;
       if (
         masteryFilter === 'mid' &&
@@ -155,7 +153,7 @@ export default function FightingStylesDatabase() {
         )
       );
     });
-  }, [searchQuery, seaFilter, masteryFilter, lockFilter, unlockedIds]);
+  }, [searchQuery, masteryFilter, lockFilter, unlockedIds]);
 
   const selectedStyle = useMemo(
     () => BLOX_FIGHTING_STYLES.find((s) => s.id === selectedStyleId) || null,
@@ -323,27 +321,6 @@ export default function FightingStylesDatabase() {
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#04060d] border border-slate-800 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-sky-400"
                 />
               </div>
-
-              {/* Sea Filter */}
-              <div className="flex items-center gap-1 p-1 bg-[#04060d] rounded-xl border border-slate-800 text-xs shrink-0">
-                {(['All', '1', '2', '3'] as const).map((sea) => (
-                  <button
-                    key={sea}
-                    type="button"
-                    onClick={() => {
-                      setSeaFilter(sea);
-                      sounds.playClick();
-                    }}
-                    className={`px-3 py-1.5 rounded-lg font-semibold whitespace-nowrap shrink-0 cursor-pointer ${
-                      seaFilter === sea
-                        ? 'bg-sky-500 text-slate-950 font-bold'
-                        : 'text-slate-400 hover:text-white'
-                    }`}
-                  >
-                    {sea === 'All' ? 'All Seas' : `Sea ${sea}`}
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* Mastery & Lock Filters */}
@@ -411,7 +388,6 @@ export default function FightingStylesDatabase() {
                 type="button"
                 onClick={() => {
                   setSearchQuery('');
-                  setSeaFilter('All');
                   setMasteryFilter('All');
                   setLockFilter('All');
                 }}

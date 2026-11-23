@@ -465,10 +465,10 @@ export const BLOX_ISLANDS_DATABASE: IslandLocation[] = [
     sea: 1,
     recommendedLevel: '190 - 250',
     enemies: ['Prisoner', 'Dangerous Prisoner'],
-    bosses: ['Warden (Lvl 220)', 'Chief Warden (Lvl 230)', 'Swan (Lvl 240)', 'Awakened Warden'],
+    bosses: ['Warden (Lvl 220)', 'Chief Warden (Lvl 230)', 'Awakened Warden'],
     secretTip: 'Triple-boss leveling hub + Military Detective for Second Sea at Lvl 700! Catch the 3 escaping prisoners, match the colored lever planks, and defeat Awakened Warden for 3 Stars.',
     notableFeatures: [
-      'Triple-Boss Courtyard (Warden, Chief Warden, Swan)',
+      'Double-Boss Courtyard (Warden, Chief Warden)',
       'Military Detective (Level 700 Second Sea Detective Quest)',
       '3-Star Island Secrets (Prison Break, Colored Levers, Awakened Warden)',
     ],

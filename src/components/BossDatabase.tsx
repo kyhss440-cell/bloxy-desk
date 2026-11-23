@@ -13,7 +13,6 @@ type BossSort = 'level_desc' | 'level_asc' | 'name_asc';
 
 export default function BossDatabase({ onSelectBoss }: BossDatabaseProps) {
   const [search, setSearch] = useState('');
-  const [seaFilter, setSeaFilter] = useState<'All' | '1' | '2' | '3'>('All');
   const [typeFilter, setTypeFilter] = useState<BossTypeFilter>('all');
   const [sortBy, setSortBy] = useState<BossSort>('level_desc');
 
@@ -32,22 +31,20 @@ export default function BossDatabase({ onSelectBoss }: BossDatabaseProps) {
         b.name.toLowerCase().includes(q) ||
         b.location.toLowerCase().includes(q) ||
         b.drops.some(d => d.name.toLowerCase().includes(q));
-      const matchSea = seaFilter === 'All' || b.sea.toString() === seaFilter;
       const matchType =
         typeFilter === 'all' ||
         (typeFilter === 'raid' && Boolean(b.isRaidBoss)) ||
         (typeFilter === 'regular' && !b.isRaidBoss);
-      return matchSearch && matchSea && matchType;
+      return matchSearch && matchType;
     }).sort((a, b) => {
       if (sortBy === 'level_asc') return a.level - b.level;
       if (sortBy === 'name_asc') return a.name.localeCompare(b.name);
       return b.level - a.level;
     });
-  }, [search, seaFilter, typeFilter, sortBy]);
+  }, [search, typeFilter, sortBy]);
 
   const resetFilters = () => {
     setSearch('');
-    setSeaFilter('All');
     setTypeFilter('all');
     setSortBy('level_desc');
     sounds.playClick();
@@ -132,24 +129,6 @@ export default function BossDatabase({ onSelectBoss }: BossDatabaseProps) {
             ))}
           </div>
 
-          {/* Sea Filter */}
-          <div className="flex items-center gap-1 p-1 bg-slate-950 rounded-xl border border-slate-800 text-xs shrink-0">
-            {(['All', '1', '2', '3'] as const).map(sea => (
-              <button
-                key={sea}
-                onClick={() => {
-                  setSeaFilter(sea);
-                  sounds.playClick();
-                }}
-                className={`px-3 py-1.5 rounded-lg font-semibold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
-                  seaFilter === sea ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {sea === 'All' ? 'All Seas' : `Sea ${sea}`}
-              </button>
-            ))}
-          </div>
-
           {/* Sort Dropdown */}
           <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 shrink-0">
             <ArrowUpDown className="w-3.5 h-3.5 text-red-400 shrink-0" />
@@ -175,7 +154,7 @@ export default function BossDatabase({ onSelectBoss }: BossDatabaseProps) {
         <span className="tabular-nums">
           Showing <strong className="text-white">{filteredBosses.length}</strong> of {counts.total} bosses
         </span>
-        {(search || seaFilter !== 'All' || typeFilter !== 'all') && (
+        {(search || typeFilter !== 'all') && (
           <button
             onClick={resetFilters}
             className="flex items-center gap-1.5 text-red-300 hover:text-white font-semibold cursor-pointer whitespace-nowrap"

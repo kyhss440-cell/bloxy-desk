@@ -3,6 +3,7 @@ import { Search, Sparkles, Flame, Swords, Shield, Dices, ArrowRight, Zap, Skull,
 import dracoShowcaseImg from '../assets/images/race_draco_showcase_clean.png';
 import sunnyHeroBannerImg from '../assets/images/sunny_hero_banner_1794533036889.jpg';
 import kitsuneShowcaseImg from '../assets/images/regenerated_image_1794538705883.png';
+import kitsuneFruitImg from '../assets/images/kitsune_fruit_showcase_1794311748109.jpg';
 import secretQuestsIconImg from '../assets/images/secret_quests_icon_1794891737076.jpg';
 import firstSeaIconImg from '../assets/images/first_sea_icon_1794891737755.jpg';
 
@@ -92,7 +93,7 @@ export default function Hero({ onNavigate, openSearch }: HeroProps) {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {[
-            { id: 'fruits', label: 'All Fruits', icon: '🍎', image: '/assets/aistudio/kitsune_transparent.png', desc: '42 devil fruits', color: 'border-red-500/30 hover:border-red-500' },
+            { id: 'fruits', label: 'All Fruits', image: '/assets/aistudio/kitsune_transparent.png', desc: '42 devil fruits', color: 'border-red-500/30 hover:border-red-500' },
             { id: 'races', label: 'Races V1-V4', icon: '⚡', image: '/assets/aistudio/race_draco_icon_clean.png', desc: '7 races & trials', color: 'border-amber-500/30 hover:border-amber-500' },
             { id: 'swords', label: 'Swords', icon: '⚔️', image: '/assets/aistudio/ttk_swords_clean.png', desc: 'CDK, TTK, Shark Anchor', color: 'border-cyan-500/30 hover:border-cyan-500' },
             { id: 'guns', label: 'Guns', icon: '🔫', image: '/assets/aistudio/image_b14263e2.png', desc: 'Skull Guitar, Dragonstorm', color: 'border-violet-500/30 hover:border-violet-500' },

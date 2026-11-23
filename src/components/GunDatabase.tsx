@@ -63,7 +63,6 @@ function getRarityAccent(rarity: FruitRarity): string {
 
 export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
   const [search, setSearch] = useState('');
-  const [seaFilter, setSeaFilter] = useState<'All' | '1' | '2' | '3'>('All');
   const [rarityFilter, setRarityFilter] = useState<FruitRarity | 'All'>('All');
   const [ownedFilter, setOwnedFilter] = useState<CollectionStatusFilter>('all');
   const [sortBy, setSortBy] = useState<SortOption>('rarity_desc');
@@ -95,7 +94,6 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
 
   const resetFilters = () => {
     setSearch('');
-    setSeaFilter('All');
     setRarityFilter('All');
     setOwnedFilter('all');
     setSortBy('rarity_desc');
@@ -132,7 +130,6 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
         g.howToObtain.toLowerCase().includes(q) ||
         g.moves.some((m) => m.name.toLowerCase().includes(q));
 
-      const matchSea = seaFilter === 'All' || g.sea.toString() === seaFilter;
       const matchRarity = rarityFilter === 'All' || g.rarity === rarityFilter;
       const isOwned = collectedIds.includes(g.id);
       const matchOwned =
@@ -140,7 +137,7 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
         (ownedFilter === 'collected' && isOwned) ||
         (ownedFilter === 'missing' && !isOwned);
 
-      return matchSearch && matchSea && matchRarity && matchOwned;
+      return matchSearch && matchRarity && matchOwned;
     });
 
     return [...list].sort((a, b) => {
@@ -172,7 +169,7 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
         }
       }
     });
-  }, [search, seaFilter, rarityFilter, ownedFilter, sortBy, collectedIds]);
+  }, [search, rarityFilter, ownedFilter, sortBy, collectedIds]);
 
   const totalCount = BLOX_GUNS_DATABASE.length;
   const collectedCount = collectedIds.filter((id) =>
@@ -233,26 +230,6 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
               onChange={(e) => setSearch(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-violet-400"
             />
-          </div>
-
-          {/* Sea Segmented Control */}
-          <div className="flex items-center gap-1 p-1 bg-slate-950 rounded-xl border border-slate-800 text-xs shrink-0">
-            {(['All', '1', '2', '3'] as const).map((sea) => (
-              <button
-                key={sea}
-                onClick={() => {
-                  setSeaFilter(sea);
-                  sounds.playClick();
-                }}
-                className={`px-3 py-1.5 rounded-lg font-semibold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
-                  seaFilter === sea
-                    ? 'bg-violet-500 text-white font-bold'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {sea === 'All' ? 'All Seas' : `Sea ${sea}`}
-              </button>
-            ))}
           </div>
 
           {/* Sort Select */}
@@ -330,7 +307,7 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
         <span className="tabular-nums">
           Showing <strong className="text-white">{filteredGuns.length}</strong> of {totalCount} guns
         </span>
-        {(search || seaFilter !== 'All' || rarityFilter !== 'All' || ownedFilter !== 'all') && (
+        {(search || rarityFilter !== 'All' || ownedFilter !== 'all') && (
           <button
             onClick={resetFilters}
             className="flex items-center gap-1.5 text-violet-300 hover:text-white font-semibold cursor-pointer whitespace-nowrap"
