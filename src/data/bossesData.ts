@@ -11,6 +11,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Sea Castle (Third Sea)',
     respawnTime: 'Manual Spawn (God’s Chalice + 3 Legendary Haki Aura buttons)',
+    image: '/assets/aistudio/image_41008164.png',
     isRaidBoss: true,
     strategy:
       'Blinds the entire server in dense white fog and unleashes Dark Blade V3 slashes. Stay airborne or keep range with Portal/Buddha teams. Defeating him activates Sea Castle portals and opens the Tushita secret waterfall door!',
@@ -31,6 +32,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Tiki Outpost Shrine (Third Sea)',
     respawnTime: 'Manual / Event Trigger (Destroy Tiki Eagle Eyes)',
+    image: '/assets/aistudio/image_8bd8e13d.png',
     isRaidBoss: true,
     strategy:
       'Massive avian raid boss atop Tiki Outpost. Uses wide aerial cyclone barrages and dive-bombs—bring high-mobility Fruits or Sharkman/Sanguine sustain.',
@@ -50,6 +52,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Rough Sea (Danger Level 6 · Frozen Dimension)',
     respawnTime: 'Spy NPC "Frozen Dimension" + 5 Player Boat Crew',
+    image: '/assets/aistudio/image_11a4b4e5.png',
     isRaidBoss: true,
     strategy:
       'Colossal abyssal sea serpent whose armor segments must be shattered before piercing the core. Requires Beast Hunter boat harpoon to retrieve the Leviathan Heart back at Tiki Outpost.',
@@ -69,6 +72,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Cake Land Dimensional Mirror (Sea of Treats)',
     respawnTime: 'Manual Spawn (500 NPCs defeated + Sweet Chalice)',
+    image: '/assets/aistudio/image_525cf98b.png',
     isRaidBoss: true,
     strategy:
       'Uses awakened Dough moves with devastating AoE knockback. Equip Buddha + Shark V3/V4 and coordinate 5+ players to split aggro.',
@@ -90,6 +94,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Cake Land Dimensional Mirror (Sea of Treats)',
     respawnTime: 'Manual Spawn (500 NPCs defeated + talk to drip_mama)',
+    image: '/assets/aistudio/image_54c94089.png',
     isRaidBoss: true,
     strategy:
       'Standard version of the Cake Dimension raid without Sweet Chalice. Uses Pastry River and Dough Fist Barrage—watch for the summon animation.',
@@ -110,6 +115,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Haunted Castle Crypt (Third Sea)',
     respawnTime: 'Manual Spawn (Hallow Essence on Altar)',
+    image: '/assets/aistudio/image_815a3aac.png',
     isRaidBoss: true,
     strategy:
       'Roll Hallow Essence from Death King using Bones, then place it on the Crypt Altar. Essential for Hallow Scythe and the "Fear the Reaper" CDK trial!',
@@ -129,6 +135,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Sea Danger Levels 2 – 6',
     respawnTime: 'Random Sea Event Encounter',
+    image: '/assets/aistudio/image_72956918.png',
     isRaidBoss: true,
     strategy:
       'Aggressive 150k HP sea predator that inflicts Terror vision blur and drags players underwater. Kite from mid-air with Awakened Magma, Buddha, or Dragonstorm.',
@@ -148,6 +155,8 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Sea Danger Levels 2 – 6 (Monster Magnet Active)',
     respawnTime: 'Guaranteed when carrying Monster Magnet craft',
+    image: '/assets/aistudio/image_cbe6de1a.png',
+    imageFit: 'contain',
     isRaidBoss: true,
     strategy:
       'Empowered 195k HP Terror Shark variant tethered to the Shark Anchor. Whoever triggers it with Monster Magnet guarantees the Mythical Shark Anchor drop!',
@@ -167,6 +176,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Sea Danger Levels 1 – 6 (Ocean Event)',
     respawnTime: 'Random Ocean Event Encounter',
+    image: '/assets/aistudio/image_1b323b1d.png',
     isRaidBoss: true,
     strategy:
       'Spawns three synchronized Sea Beasts simultaneously in a raging storm. Awakened Magma Z/V melts all three HP bars for huge Beli, Fragments, and Fist of Darkness.',
@@ -186,6 +196,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Cursed Ship (Dining Hall · Second Sea)',
     respawnTime: 'Spawns every 3rd night (33% night cycle chance)',
+    image: '/assets/aistudio/image_f784524d.png',
     isRaidBoss: true,
     strategy:
       'Appears inside the ghostly Cursed Ship when night falls. Wields Midnight Blade slashes—farm him for Ectoplasm and the Hellfire Torch to unlock Ghoul Race.',
@@ -205,6 +216,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Hot and Cold · Secret Lab Chamber',
     respawnTime: 'Manual Spawn (1,000 Fragment Microchip from Arithmeth)',
+    image: '/assets/aistudio/image_0fd2c1cf.png',
     isRaidBoss: true,
     strategy:
       'Teleports inside a massive Control Room dome and slices targets cleanly. Stay close with Buddha M1s or stun-lock immediately upon spawn.',
@@ -225,6 +237,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Kingdom of Rose · Factory (Second Sea)',
     respawnTime: 'Server Event every 1 Hour 30 Minutes',
+    image: '/assets/aistudio/image_709b2f41.png',
     isRaidBoss: true,
     strategy:
       'Server-wide DPS race to break the locked Factory Core within 5 minutes. Highest damage dealer wins a guaranteed Physical Blox Fruit!',
@@ -244,6 +257,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Dark Arena (Second Sea)',
     respawnTime: 'Manual Spawn (Insert Fist of Darkness into Altar)',
+    image: '/assets/aistudio/image_54dc0793.png',
     isRaidBoss: true,
     strategy:
       'Combines Dark black holes with Quake tremors. Keep elevated in the air and coordinate burst combos—guaranteed Dark Fragment drop for Race V3 & Skull Guitar.',
@@ -263,7 +277,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Marine Fortress (First Sea)',
     respawnTime: 'Server Timer every 6 Hours',
-    image: '/assets/aistudio/image_e51d7cc9.png',
+    image: '/assets/aistudio/image_ca2fdfdc.png',
     isRaidBoss: true,
     strategy:
       'Highest-level First Sea boss with colossal Quake waves. Stay above ground level and strike between his Quake punch slams to unlock Bisento V2.',
@@ -383,6 +397,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Random Third Sea Island (Elite Hunter Tracked)',
     respawnTime: '10 Minutes (Shared Elite Timer)',
+    image: '/assets/aistudio/image_b860b385.png',
     isRaidBoss: false,
     strategy:
       'Elite Pirate wielding Awakened Dark pulls and teleport slams. Defeat 30 combined Elites to pull Yama safely!',
@@ -403,6 +418,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Random Third Sea Island (Elite Hunter Tracked)',
     respawnTime: '10 Minutes (Shared Elite Timer)',
+    image: '/assets/aistudio/image_7724865b.png',
     isRaidBoss: false,
     strategy:
       'Elite Pirate casting Awakened Magma eruptions. Counts toward Yama’s 30 Elite kill requirement and awards 100 Fragments.',
@@ -423,6 +439,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Random Third Sea Island (Elite Hunter Tracked)',
     respawnTime: '10 Minutes (Shared Elite Timer)',
+    image: '/assets/aistudio/image_3fc8dd9f.png',
     isRaidBoss: false,
     strategy:
       'Elite Pirate casting Awakened Rumble lightning strikes. Keep Rubber or Flash Step ready to dodge his telegraphed stun.',
@@ -443,6 +460,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Great Tree Plateau (Third Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_57e77ca0.png',
     isRaidBoss: false,
     strategy:
       'Uses Umbrella/Weight slams that knock players away. Great quest boss atop Great Tree before moving to Floating Turtle.',
@@ -461,6 +479,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 3,
     location: 'Hydra Island · Empress Palace (Third Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_35e03775.png',
     isRaidBoss: false,
     strategy:
       'Fights with Love-fruit charmed hearts and kicks inside Hydra Palace. Farm her for the Venom Bow!',
@@ -500,6 +519,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Forgotten Island (Second Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_1ef60012.png',
     isRaidBoss: false,
     strategy:
       'Summons a Sea Beast minion and wields Dragon Trident. Pull Tide Keeper onto the high cliff shore to bypass the minion safely.',
@@ -519,6 +539,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Ice Castle Throne Room (Second Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_780bb5cb.png',
     isRaidBoss: false,
     strategy:
       'Casts Awakened Ice surges and freezes the room floor. Drops both the Hidden Key (Rengoku) and Library Key (Death Step)!',
@@ -538,6 +559,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Hot and Cold · Hot Volcano Side (Second Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_d7f9a618.png',
     isRaidBoss: false,
     strategy:
       'Uses Smoke Bomber flights and grabs. Keep mid-distance with Sword/Fruit M1s inside the volcanic pit.',
@@ -556,6 +578,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Swan Mansion (Secret Boss Room)',
     respawnTime: '30 Minutes (Requires $1M+ Fruit to Trevor)',
+    image: '/assets/aistudio/image_f5b688b0.png',
     isRaidBoss: false,
     strategy:
       'Two-phase boss utilizing Awakened Spider strings. Mandatory defeat before Arowe unlocks Race V3 and Captain unlocks Third Sea.',
@@ -575,6 +598,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Green Zone Crater (Second Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_1c90bdd5.png',
     isRaidBoss: false,
     strategy:
       'Pulls targets down with Gravity Blade meteors. Jump immediately whenever his Gravity Crush circle appears.',
@@ -593,6 +617,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Kingdom of Rose Mountain Peak (Second Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_784735ac.png',
     isRaidBoss: false,
     strategy:
       'Spring-fruit bouncer required for Bartilo’s Colosseum quest. Stays near the upper stone cliff ridge.',
@@ -611,6 +636,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 2,
     location: 'Kingdom of Rose · Sunflower Hill (Second Sea)',
     respawnTime: '30 Minutes',
+    image: '/assets/aistudio/image_a9dc1735.png',
     isRaidBoss: false,
     strategy:
       'First Second Sea boss. Activates Diamond armor reducing physical damage—use high-combo Fruit skills to break through.',
@@ -765,8 +791,7 @@ export const BLOX_BOSSES_DATABASE: BloxBoss[] = [
     sea: 1,
     location: 'Prison Island Courtyard (First Sea)',
     respawnTime: '20 Minutes',
-    image: '/assets/aistudio/image_6aa9cc1d.png',
-    imageFit: 'contain',
+    image: '/assets/aistudio/image_cda0828f.png',
     isRaidBoss: false,
     strategy:
       'First of the three Prison courtyard bosses. Simple M1 kite with Light, Ice, or Flame.',
