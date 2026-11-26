@@ -192,7 +192,7 @@ export default function FightingStylesDatabase() {
             <span className="text-slate-600" aria-hidden="true">·</span>
             <span className="text-purple-400">All 3 Seas</span>
             <span className="text-slate-600" aria-hidden="true">·</span>
-            <span className="text-sky-400">Wiki-Verified Movesets</span>
+            <span className="text-sky-400">Verified Movesets</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-black text-white font-heading tracking-tight">

@@ -44,6 +44,10 @@ export interface BloxFruit {
   symbol: string;
   abilities: MoveAbility[];
   awakening?: AwakeningInfo;
+  hasTransformation?: boolean;
+  transformationName?: string;
+  transformationImage?: string;
+  transformationDescription?: string;
   bestFor: string;
 }
 
@@ -282,6 +286,7 @@ export interface BloxAccessory {
   location: string;
   howToObtain: string;
   dropRate?: string;
+  image?: string;
   description: string;
 }
 

@@ -28,6 +28,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Transformation', mastery: 300, description: 'Transforms user into the supreme Nine-Tailed Fox, gaining heightened defense, speed, and modified attacks.' },
       { key: 'F', name: 'Swift Shrewdness', mastery: 50, description: 'Rapid high-speed teleportation dash leaving blue spirit embers.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Nine-Tailed Kitsune Form',
+    transformationDescription: 'Transforms into the celestial Nine-Tailed Fox via [V], granting supreme speed, passive water running, heightened defense, and enhanced blue fox-fire attacks.',
   },
   {
     id: 'dragon',
@@ -55,6 +58,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Dragon Transformation', mastery: 350, description: 'Enter full dragon form with 60% damage resistance, airborne supremacy, and upgraded moves.' },
       { key: 'F', name: 'Dragon Flight', mastery: 75, description: 'Fly effortlessly through the sky with fiery wings.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Dragon Form (East / West)',
+    transformationDescription: 'Enters full mythical Dragon form via [V] Dragon Transformation with 60% damage resistance, airborne sky flight, and devastating inferno moves.',
   },
   {
     id: 'yeti',
@@ -82,6 +88,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Yeti Transformation', mastery: 300, description: 'Unleash towering Yeti Beast form with ice M1 combos and heightened defense.' },
       { key: 'F', name: 'Arctic Leap', mastery: 50, description: 'Vaults vast distances across land and frozen seas.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Frost Yeti Beast Form',
+    transformationDescription: 'Unleashes the colossal Frost Yeti transformation via [V], freezing water underfoot with glacial M1 slam combos and high defense.',
   },
   {
     id: 'magnet',
@@ -109,6 +118,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Magnetic Cataclysm', mastery: 300, description: 'Collapses magnetized titans and debris onto the battlefield.' },
       { key: 'F', name: 'Mag-Lev Glide', mastery: 50, description: 'Surfs rapidly on magnetic flux currents above the ground.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Magnetized Colossus Form',
+    transformationDescription: 'Activates Magnet’s empowered transformation state, sheathing the user in electromagnetic armor with amplified railgun and metallic debris attacks.',
   },
   {
     id: 'leopard',
@@ -136,6 +148,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Transformation', mastery: 300, description: 'Morph into beast-hybrid form with built-in fast M1 claw combos and reduced cooldowns.' },
       { key: 'F', name: 'Body Flicker', mastery: 50, description: 'Lightning quick sprint evasion leaves dust trails.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Tiger Beast Form',
+    transformationDescription: 'Morphs into a hyper-fast feline predator via [V] Transformation with rapid M1 claw combos, defense buffs, and reduced skill cooldowns.',
   },
   {
     id: 'dough',
@@ -203,6 +218,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Transformation', mastery: 300, description: 'Full T-Rex form with passive armor, tail attacks, and continuous bleed aura.' },
       { key: 'F', name: 'Reptilian Dash', mastery: 50, description: 'Ground shake charge destroying destructible walls.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Tyrannosaurus Rex Form',
+    transformationDescription: 'Morphs into a ferocious T-Rex via [V], unlocking passive armor, devastating M1 claw attacks, tail swipes, and a continuous bleed aura.',
   },
   {
     id: 'mammoth',
@@ -230,6 +248,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Transformation', mastery: 300, description: 'Transform into a giant armored mammoth with passive defense buffs.' },
       { key: 'F', name: 'Stampede', mastery: 50, description: 'Charges continuously with massive tusks, continuously dealing damage to anything run over.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Ancient Mammoth Form',
+    transformationDescription: 'Transforms into a giant armored prehistoric mammoth via [V], granting heavy defense buffs and continuous Stampede damage.',
   },
   {
     id: 'spirit',
@@ -284,6 +305,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Gas Transformation', mastery: 300, description: 'Equips colossal armored gas form with Logia-powered M1 attacks.' },
       { key: 'F', name: 'Vapor Flight', mastery: 50, description: 'Transforms into an agile cloud of gas to glide freely.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Armored Gas Form',
+    transformationDescription: 'Equips the colossal mechanized Gas Transformation via [V], unleashing Logia-powered sweeping M1 slashes and explosive vapor blasts.',
   },
   {
     id: 'venom',
@@ -311,6 +335,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Transformation', mastery: 300, description: 'Summons the towering Three-Headed Venom Demon with boosted armor and attacks.' },
       { key: 'F', name: 'Serpent Glide', mastery: 50, description: 'Glides across land and water as a sleek venom viper.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Three-Headed Venom Demon',
+    transformationDescription: 'Summons the towering Three-Headed Venom Demon via [V] Transformation, granting boosted armor, extended reach, and toxic venom attacks.',
   },
   {
     id: 'shadow',
@@ -405,7 +432,10 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
         { key: 'V', originalName: 'Buddha Blast', awakenedName: 'Twilight of the Gods', fragCost: 5000, description: 'Calls down heavenly swords and shockwaves across huge battlefield.' },
         { key: 'F', originalName: 'Light Speed Dash', awakenedName: 'Retribution Dash', fragCost: 2000, description: 'Stun dash pushing enemies backwards.' },
       ]
-    }
+    },
+    hasTransformation: true,
+    transformationName: 'Golden Buddha Titan',
+    transformationDescription: 'Grows into a gigantic golden deity via [Z] Transform (or Awakened Shift), gaining massive melee/sword reach, defense reduction, and water walking.',
   },
   {
     id: 'portal',
@@ -566,7 +596,10 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
         { key: 'V', originalName: 'Full Transformation', awakenedName: 'Blazing Plumage', fragCost: 5000, description: 'M1 attack unlocked in bird form + water immunity.' },
         { key: 'F', originalName: 'Swift Flight', awakenedName: 'Flame Metamorphosis', fragCost: 2000, description: 'Supersonic flight with burning trail.' },
       ]
-    }
+    },
+    hasTransformation: true,
+    transformationName: 'Azure Phoenix Form',
+    transformationDescription: 'Morphs into a blazing azure phoenix via [V] Full Transformation (Awakened: Blazing Plumage), granting aerial flight, passive regeneration, and M1 claw attacks.',
   },
   {
     id: 'quake',
@@ -884,6 +917,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'C', name: 'Crystal Flash', mastery: 75, description: 'Refracts blinding sunlight to stun and damage nearby enemies.' },
       { key: 'V', name: 'Brilliant Shards', mastery: 120, description: 'Erupts giant jagged diamond spires all around the user.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Diamond Encrust Form',
+    transformationDescription: 'Coats your body in shimmering crystalline diamond armor via [Z] Encrust, granting substantial damage reduction and prism crystal reflection.',
   },
   {
     id: 'ghost',
@@ -1113,6 +1149,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'V', name: 'Gear 2 Transformation', mastery: 140, description: 'Pumps blood to generate steam, boosting move speed and attack velocity.' },
       { key: 'F', name: 'Rubber Slingshot', mastery: 15, description: 'Slingshots across the map.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Gear 2 Transformation',
+    transformationDescription: 'Pumps blood to enter steam-powered Gear 2 via [V], boosting movement speed, agility, and attack velocity.',
   },
   {
     id: 'barrier',
@@ -1219,6 +1258,9 @@ export const BLOX_FRUITS_DATABASE: BloxFruit[] = [
       { key: 'C', name: 'Torture', mastery: 200, description: 'Repels target into dimensional rift.' },
       { key: 'V', name: 'Ursus Shock', mastery: 300, description: 'Compresses a giant bubble of air and detonates it into a nuke.' },
     ],
+    hasTransformation: true,
+    transformationName: 'Pain Transformation',
+    transformationDescription: 'Unleashes Pain’s empowered transformation state with surging red aura, heightened repulsion force, and amplified paw-pad burst damage.',
   },
   {
     id: 'gravity',

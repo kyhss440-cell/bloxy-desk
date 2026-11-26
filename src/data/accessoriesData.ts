@@ -12,6 +12,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Underwater City · Sharkman Master',
     howToObtain: 'Complete the starter Sharkman Master training milestone in First Sea.',
     dropRate: 'Training Progression',
+    image: '/assets/aistudio/image_64a93408.png',
     description: 'Entry-tier cloth headband granting starter damage mitigation and light mobility.',
     buffs: [
       { stat: 'Defense', value: '+2% Damage Resistance' },
@@ -26,6 +27,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Underwater City · Sharkman Master',
     howToObtain: 'Advance through the second Sharkman Master training rank in First Sea.',
     dropRate: 'Training Progression',
+    image: '/assets/aistudio/image_95244586.png',
     description: 'Bright yellow martial arts headband improving defensive resilience.',
     buffs: [
       { stat: 'Defense', value: '+4% Damage Resistance' },
@@ -40,6 +42,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Underwater City · Sharkman Master',
     howToObtain: 'Unlock through the Sharkman Master training progression trials.',
     dropRate: 'Training Progression',
+    image: '/assets/aistudio/image_102ebac5.png',
     description: 'Sturdy orange cloth headband balancing damage resistance with faster movement speed.',
     buffs: [
       { stat: 'Damage Resistance', value: '+6% All Defense' },
@@ -54,6 +57,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Underwater City · Sharkman Master',
     howToObtain: 'Earn from intermediate Sharkman Master combat drills.',
     dropRate: 'Training Progression',
+    image: '/assets/aistudio/image_055bfda8.png',
     description: 'Deep green discipline headband offering steady defense and brisk traversal speed.',
     buffs: [
       { stat: 'Damage Resistance', value: '+8% All Defense' },
@@ -68,6 +72,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Underwater City · Sharkman Master',
     howToObtain: 'Awarded after completing Sharkman Master blue-rank sparring challenges.',
     dropRate: 'Training Progression',
+    image: '/assets/aistudio/image_c77a840c.png',
     description: 'Ocean-blue headband imbued with martial poise for improved defense and sprint speed.',
     buffs: [
       { stat: 'Damage Resistance', value: '+10% All Defense' },
@@ -82,6 +87,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Underwater City · Sharkman Master',
     howToObtain: 'Unlocked at upper Common Sharkman Master training milestones.',
     dropRate: 'Training Progression',
+    image: '/assets/aistudio/image_1cba10ee.png',
     description: 'Royal purple headband combining high starter defense with crisp agility.',
     buffs: [
       { stat: 'Damage Resistance', value: '+12% All Defense' },
@@ -96,6 +102,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Underwater City · Sharkman Master',
     howToObtain: 'Earned just before the elite Black Headband rank at Sharkman Master.',
     dropRate: 'Training Progression',
+    image: '/assets/aistudio/image_b146bed8.png',
     description: 'Crimson senior apprentice headband delivering strong Common-tier defensive buffs.',
     buffs: [
       { stat: 'Damage Resistance', value: '+14% All Defense' },
@@ -114,6 +121,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Complete the 1st Dojo Trainer belt trial (requires Dragon Talon 500+ Mastery).',
     dropRate: 'Quest Progression',
+    image: '/assets/aistudio/image_3c28a1ec.png',
     description: 'First rank of the Dragon Dojo belt progression. Boosts Melee damage and run speed.',
     buffs: [
       { stat: 'Melee Damage', value: '+2% Melee Damage' },
@@ -128,6 +136,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Complete the 2nd Dojo Trainer belt trial at the Dragon Dojo on Hydra Island.',
     dropRate: 'Quest Progression',
+    image: '/assets/aistudio/image_12ec5952.png',
     description: 'Second rank Dojo sash sharpening close-quarters strikes and footwork.',
     buffs: [
       { stat: 'Melee Damage', value: '+4% Melee Damage' },
@@ -142,6 +151,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Complete the 3rd Dojo Trainer belt trial at the Dragon Dojo.',
     dropRate: 'Quest Progression',
+    image: '/assets/aistudio/image_c185d3cb.png',
     description: 'Third rank Dragon Dojo belt adding brisk movement and stronger Fighting Style punches.',
     buffs: [
       { stat: 'Melee Damage', value: '+6% Melee Damage' },
@@ -156,6 +166,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Complete the 4th Dojo Trainer belt trial inside the Dragon Dojo.',
     dropRate: 'Quest Progression',
+    image: '/assets/aistudio/image_2355af43.png',
     description: 'Intermediate Dojo belt empowering rapid Melee combos and island traversal.',
     buffs: [
       { stat: 'Melee Damage', value: '+8% Melee Damage' },
@@ -170,6 +181,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Complete the 5th Dojo Trainer belt trial at Hydra Island’s Dragon Dojo.',
     dropRate: 'Quest Progression',
+    image: '/assets/aistudio/image_0b371fcd.png',
     description: 'Skilled disciple belt yielding major mobility alongside amplified Melee damage.',
     buffs: [
       { stat: 'Melee Damage', value: '+10% Melee Damage' },
@@ -184,6 +196,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Complete the 6th Dojo Trainer belt quest at the Dragon Dojo.',
     dropRate: 'Quest Progression',
+    image: '/assets/aistudio/image_950a9010.png',
     description: 'Advanced Dojo rank belt built for high-tempo rushdown melee fighters.',
     buffs: [
       { stat: 'Melee Damage', value: '+12% Melee Damage' },
@@ -198,6 +211,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Complete the 7th Dojo Trainer belt quest before unlocking the Black Belt.',
     dropRate: 'Quest Progression',
+    image: '/assets/aistudio/image_8cfb908d.png',
     description: 'Pre-mastery crimson Dojo belt giving huge sprint velocity and Melee force.',
     buffs: [
       { stat: 'Melee Damage', value: '+14% Melee Damage' },
@@ -212,6 +226,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Underwater City · Sharkman Master',
     howToObtain: 'Complete the final Sharkman Master headband mastery challenge.',
     dropRate: 'Mastery Reward',
+    image: '/assets/aistudio/image_c77f3901.png',
     description: 'Peak rank of the Headband collection. Grants strong all-around defense, agility, and extra Instinct dodging.',
     buffs: [
       { stat: 'Damage Resistance', value: '+16% All Defense' },
@@ -228,6 +243,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Prison Island Secret Room (First Sea)',
     howToObtain: 'Grab the Cell Block Key on Prison Island, unlock the tower room cloak stand, and defeat Megalo Guard.',
     dropRate: 'Boss Drop / Secret Quest',
+    image: '/assets/aistudio/image_b14d8646.png',
     description: 'Replaced the old Prison Pink Coat. Grants balanced Health, Energy, speed, and universal attack boosts.',
     buffs: [
       { stat: 'Movement Speed', value: '+25% Sprint Speed' },
@@ -244,6 +260,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Prison Island (First Sea)',
     howToObtain: 'Dropped by Warden or Chief Warden at Prison Island in First Sea.',
     dropRate: '10% Drop Chance',
+    image: '/assets/aistudio/image_6e0b5d56.png',
     description: 'Classic First Sea prison pink coat granting basic health and energy bonuses.',
     buffs: [
       { stat: 'Health', value: '+100 HP' },
@@ -262,6 +279,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Third Sea (Elite Hunter Quests)',
     howToObtain: 'Dropped by Third Sea Elite Pirates (Deandre, Diablo, or Urban).',
     dropRate: '5% Drop Chance',
+    image: '/assets/aistudio/image_7617c8a1.png',
     description: 'Stealthy black pirate bandanna offering massive sprint speed, physical damage, and Energy.',
     buffs: [
       { stat: 'Run Speed', value: '+80% Sprint Speed' },
@@ -277,6 +295,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Third Sea (Elite Hunter Quests)',
     howToObtain: 'Dropped by Third Sea Elite Pirates (Deandre, Diablo, or Urban).',
     dropRate: '5% Drop Chance',
+    image: '/assets/aistudio/image_a811bba5.png',
     description: 'Emerald pirate bandanna sharing identical Third Sea mobility and Energy stats.',
     buffs: [
       { stat: 'Run Speed', value: '+80% Sprint Speed' },
@@ -292,6 +311,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Third Sea (Elite Hunter Quests)',
     howToObtain: 'Dropped by Third Sea Elite Pirates (Deandre, Diablo, or Urban).',
     dropRate: '5% Drop Chance',
+    image: '/assets/aistudio/image_5fd3012e.png',
     description: 'Scarlet elite pirate bandanna packed with +750 Energy and rapid island-running speed.',
     buffs: [
       { stat: 'Run Speed', value: '+80% Sprint Speed' },
@@ -307,6 +327,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Haunted Castle (Death King)',
     howToObtain: 'Roll "Random Surprise" from the Death King NPC using 50 Bones.',
     dropRate: 'Rare Gacha Roll',
+    image: '/assets/aistudio/image_a6f32f05.png',
     description: 'Fluffy dark bear headband providing flat Energy and reliable all-source damage mitigation.',
     buffs: [
       { stat: 'All Defense', value: '+10% Damage Resistance' },
@@ -321,6 +342,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Marine Fortress Secret Chamber',
     howToObtain: 'Purchased from Parlus inside a hidden wall room at Marine Fortress for $50,000 Beli (Lv 50+).',
     dropRate: '$50,000 Beli',
+    image: '/assets/aistudio/image_847089ba.png',
     description: 'Classic First Sea starter cape giving early +5% damage across every stat.',
     buffs: [
       { stat: 'All Damage', value: '+5% Damage' },
@@ -336,6 +358,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Kingdom of Rose · Mountain Peak',
     howToObtain: 'Dropped by Jeremy (Level 850 boss) in Second Sea.',
     dropRate: '10% Drop Chance',
+    image: '/assets/aistudio/image_435c7b09.png',
     description: 'Heavy dark studded coat upgrading early-Second Sea all-around attack power.',
     buffs: [
       { stat: 'All Damage', value: '+7.5% Damage' },
@@ -351,6 +374,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Kingdom of Rose · Harbor',
     howToObtain: 'Found inside one of the Rare Chests or Secret NPC event drops in Second Sea.',
     dropRate: 'Rare Second Sea Drop',
+    image: '/assets/aistudio/image_95763a2c.png',
     description: 'Electric-blue studded coat offering +500 Energy alongside +7.5% omni-damage.',
     buffs: [
       { stat: 'All Damage', value: '+7.5% Damage' },
@@ -366,6 +390,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Open Ocean (Second & Third Sea)',
     howToObtain: '25% drop chance upon defeating any spawned Sea Beast.',
     dropRate: '25% Drop Chance',
+    image: '/assets/aistudio/image_882d8b1c.png',
     description: 'Plush pink brimmed hat featuring iconic defensive plating against Blox Fruit skills.',
     buffs: [
       { stat: 'Fruit Defense', value: '+10% Blox Fruit Resistance' },
@@ -380,6 +405,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Marine Fortress Courtyard',
     howToObtain: 'Dropped by the Vice Admiral boss (Level 130) at Marine Fortress.',
     dropRate: '10% Drop Chance',
+    image: '/assets/aistudio/image_552441f5.png',
     description: 'Navy Justice officer coat tailored for Fighting Style users in First Sea.',
     buffs: [
       { stat: 'Melee Damage', value: '+10% Melee Damage' },
@@ -394,6 +420,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Fountain City (First Sea)',
     howToObtain: 'Rarely dropped by the Cyborg (Franky) boss at Fountain City.',
     dropRate: '2% Drop Chance',
+    image: '/assets/aistudio/image_1f55a818.png',
     description: 'Sleek tinted sunglasses boasting one of the strongest combined stat spreads in First Sea.',
     buffs: [
       { stat: 'All Damage', value: '+7.5% Damage' },
@@ -409,6 +436,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Marine Fortress / Marine Bases (First Sea)',
     howToObtain: 'Dropped by Marine Captains and Vice Admiral in First Sea.',
     dropRate: '5% Drop Chance',
+    image: '/assets/aistudio/image_74c5a0c3.png',
     description: 'Standard Marine officer cap boosting energy and defense in First Sea.',
     buffs: [
       { stat: 'Defense', value: '+5% Damage Resistance' },
@@ -423,6 +451,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Complete the 8th and final Dojo Trainer trial at the Dragon Dojo (Unlocks Draco V4 path).',
     dropRate: 'Final Dojo Trial',
+    image: '/assets/aistudio/image_b748b5fa.png',
     description: 'Master rank black sash of the Dragon Dojo. Massive Melee DPS, speed, and an extra Instinct dodge.',
     buffs: [
       { stat: 'Melee Damage', value: '+16% Melee Damage' },
@@ -438,6 +467,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'North Pole / Holiday Event Island',
     howToObtain: 'Obtained from Gift Boxes or Santa Event quests during the Winter Holiday Event.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_d9a1ac8c.png',
     description: 'Festive pointy elf cap with nimble melee/sword cooldowns and sprint speed.',
     buffs: [
       { stat: 'Melee & Sword Damage', value: '+10% Damage' },
@@ -453,6 +483,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Cursed Ship (Second Sea)',
     howToObtain: 'Purchased for 50 Ectoplasm from El Perro NPC inside the Cursed Ship.',
     dropRate: '50 Ectoplasm',
+    image: '/assets/aistudio/image_3fc5df71.png',
     description: 'Bloodstained demon mask that siphons health from every Melee hit—meta for Buddha grinding.',
     buffs: [
       { stat: 'Life Leech', value: '+10% HP Steal on Melee' },
@@ -468,6 +499,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Haunted Castle (Death King)',
     howToObtain: 'Roll "Random Surprise" from the Death King NPC at Haunted Castle for 50 Bones.',
     dropRate: 'Rare Gacha Roll',
+    image: '/assets/aistudio/image_4eb4de84.png',
     description: 'Woven straw sunhat with gleaming trim granting +10% universal damage and a hefty HP pool.',
     buffs: [
       { stat: 'All Damage', value: '+10% Universal Damage' },
@@ -482,6 +514,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Sea Castle (Elite Hunter Quests)',
     howToObtain: 'Dropped by any Third Sea Elite Pirate boss (Deandre, Diablo, or Urban).',
     dropRate: '5% Drop Chance',
+    image: '/assets/aistudio/image_aab66128.png',
     description: 'Jet-black hunter cloak favored in PvP for its +750 HP, +80% sprint speed, and +10% weapon damage.',
     buffs: [
       { stat: 'Run Speed', value: '+80% Sprint Speed' },
@@ -497,6 +530,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Sea Castle (Elite Hunter Quests)',
     howToObtain: 'Dropped by any Third Sea Elite Pirate boss (Deandre, Diablo, or Urban).',
     dropRate: '5% Drop Chance',
+    image: '/assets/aistudio/image_2f539fcf.png',
     description: 'Forest-green hunter cloak sharing identical top-tier speed, HP, and physical DPS stats.',
     buffs: [
       { stat: 'Run Speed', value: '+80% Sprint Speed' },
@@ -512,6 +546,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Sea Castle (Elite Hunter Quests)',
     howToObtain: 'Dropped by any Third Sea Elite Pirate boss (Deandre, Diablo, or Urban).',
     dropRate: '5% Drop Chance',
+    image: '/assets/aistudio/image_7c170e7c.png',
     description: 'Crimson hunter cloak with high HP durability and +80% land speed.',
     buffs: [
       { stat: 'Run Speed', value: '+80% Sprint Speed' },
@@ -527,6 +562,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'North Pole / Holiday Event Island',
     howToObtain: 'Obtained from Winter Event Gifts dropped every hour at North Pole.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_b53842ea.png',
     description: 'Classic festive cap packing surprising Fruit/Sword DPS and +400 Health & Energy.',
     buffs: [
       { stat: 'Sword & Fruit Damage', value: '+12.5% Damage' },
@@ -542,6 +578,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Tiki Outpost Crafting',
     howToObtain: 'Crafted at the Shark Hunter NPC at Tiki Outpost using 5 Shark Teeth & 1 Mutant Tooth.',
     dropRate: 'Craftable',
+    image: '/assets/aistudio/image_b02dd7dd.png',
     description: 'Trophy necklace boosting Sea Event damage, movement speed, and extra dash range.',
     buffs: [
       { stat: 'Movement Speed', value: '+50% Sprint Speed' },
@@ -557,6 +594,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Desert Island (Secret House)',
     howToObtain: 'Purchased from Hasan inside a hidden house at Desert Island for $150,000 Beli (Lv 150+).',
     dropRate: '$150,000 Beli',
+    image: '/assets/aistudio/image_bbbd96fe.png',
     description: 'Tricorne adventurer hat built exclusively for dedicated First Sea sword mains.',
     buffs: [
       { stat: 'Sword Damage', value: '+10% Sword Damage' },
@@ -570,6 +608,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Prehistoric Island / Tiki Crafting',
     howToObtain: 'Obtained via Fossil / Dinosaur Bone crafting & Tiki Outpost Sea Event milestones.',
     dropRate: 'Craftable',
+    image: '/assets/aistudio/image_0abd3857.png',
     description: 'Primal fossilized skull visor granting heavy durability against close-range rushdown builds.',
     buffs: [
       { stat: 'Health', value: '+750 HP' },
@@ -584,6 +623,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Upper Skylands (Cloud Temple)',
     howToObtain: 'Purchased from Yoshi / Mad Scientist NPC at Upper Skylands for $500,000 Beli (200+ Melee stat).',
     dropRate: '$500,000 Beli',
+    image: '/assets/aistudio/image_19d2a1c1.png',
     description: 'Sacred floating ring drums worn on the back, amplifying Blox Fruit damage and max Energy.',
     buffs: [
       { stat: 'Blox Fruit Damage', value: '+10% Fruit Damage' },
@@ -598,6 +638,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Open Ocean (Second & Third Sea)',
     howToObtain: 'Rare drop from defeating Sea Beasts or Sea Kings across Second and Third Seas.',
     dropRate: '10% Sea Beast Drop',
+    image: '/assets/aistudio/image_62a4b64a.png',
     description: 'Dapper black top hat cutting all skill cooldowns while hardening against sword slashes.',
     buffs: [
       { stat: 'Cooldown Reduction', value: '-10% All Skill Cooldowns' },
@@ -613,6 +654,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'PvP Bounty Quest (Any Sea)',
     howToObtain: 'Defeat 3 players close to your level as a Pirate while holding 250,000+ Bounty.',
     dropRate: 'Bounty Milestone',
+    image: '/assets/aistudio/image_09ef72fc.png',
     description: 'Sniper’s signature goggles hat lowering Gun skill cooldowns significantly.',
     buffs: [
       { stat: 'Gun Damage', value: '+7.5% Gun Damage' },
@@ -627,6 +669,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Colosseum (Kingdom of Rose, Sea 2)',
     howToObtain: 'Complete Bartilo’s Colosseum Quest and rescue the prisoners.',
     dropRate: 'Quest Reward',
+    image: '/assets/aistudio/image_66c6522b.png',
     description: 'Gladiator bronze helm forged for aggressive Sword & Melee hybrid combos.',
     buffs: [
       { stat: 'Melee & Sword Damage', value: '+12.5% Damage' },
@@ -645,6 +688,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: "Valentine's Event Shop",
     howToObtain: "Purchased from the Valentine's Event Shop using Hearts event currency.",
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_8a4163ca.png',
     description: 'Rosy tailored coat pairing +12.5% Sword & Fruit output with broad damage reduction.',
     buffs: [
       { stat: 'Sword & Fruit Damage', value: '+12.5% Damage' },
@@ -660,6 +704,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Tournament / Crew Exclusive',
     howToObtain: 'Exclusive crew championship coat awarded to Diamond Syndicate members.',
     dropRate: 'Crew Exclusive',
+    image: '/assets/aistudio/image_ac33d00d.png',
     description: 'Ultra-rare Diamond Syndicate ceremonial coat with balanced omni-damage and vitality stats.',
     buffs: [
       { stat: 'All Damage', value: '+5% Universal Damage' },
@@ -674,6 +719,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Prehistoric Island (Sea Danger 6)',
     howToObtain: 'Crafted from Dinosaur Bones / Dragon Eggs earned at Prehistoric Island.',
     dropRate: 'Craftable',
+    image: '/assets/aistudio/image_705d8d3f.png',
     description: 'Fierce dinosaur-jaw hood adding rapid sprint speed, extended ground dashes, and Melee/Fruit burst.',
     buffs: [
       { stat: 'Melee & Fruit Damage', value: '+10% Damage' },
@@ -690,6 +736,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hydra Island · Dragon Dojo',
     howToObtain: 'Crafted via the Dragon Dojo using Dragon Scales and Blaze Embers.',
     dropRate: 'Craftable',
+    image: '/assets/aistudio/image_e37f1a60.png',
     description: 'Flame-trimmed draconic cape unlocking extra Sky Jumps and huge Sword & Gun synergy.',
     buffs: [
       { stat: 'Sword & Gun Damage', value: '+15% Damage' },
@@ -705,6 +752,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Tiki Outpost Shrine (Third Sea)',
     howToObtain: 'Dropped upon defeating the Tyrant of the Skies raid boss at Tiki Outpost.',
     dropRate: 'Boss Drop',
+    image: '/assets/aistudio/image_5bd4a709.png',
     description: 'Crested avian battle mask worn by sky guardians, boasting fast HP recovery and swift sprint.',
     buffs: [
       { stat: 'Movement Speed', value: '+25% Sprint Speed' },
@@ -720,6 +768,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: "Valentine's Event Shop",
     howToObtain: "Purchased from the Valentine's Event Shop for 750 Hearts.",
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_f0dc8a9c.png',
     description: 'Stylish crimson heart-framed glasses crafted for Melee and Gun combo specialists.',
     buffs: [
       { stat: 'Melee & Gun Damage', value: '+12.5% Damage' },
@@ -735,6 +784,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Haunted Castle Crypt (Third Sea)',
     howToObtain: '100% drop upon defeating the Soul Reaper raid boss summoned via Hallow Essence.',
     dropRate: '100% Boss Drop',
+    image: '/assets/aistudio/image_c215c942.png',
     description: 'Golden spiked halo offering +500 Health/Energy along with balanced damage, defense, and energy regen.',
     buffs: [
       { stat: 'All Damage & Defense', value: '+5% Damage & +5% Defense' },
@@ -750,6 +800,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Kitsune Island (Sea Danger 6)',
     howToObtain: 'Rewarded at the Kitsune Shrine altar after offering 20–25 Azure Embers under a Full Moon.',
     dropRate: 'Shrine Altar Drop',
+    image: '/assets/aistudio/image_4822a2d6.png',
     description: 'Ornate porcelain fox mask amplifying Blox Fruit damage, fury meters, and Instinct dodges.',
     buffs: [
       { stat: 'Blox Fruit Damage', value: '+10% Fruit Damage' },
@@ -766,6 +817,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Kitsune Island (Sea Danger 6)',
     howToObtain: 'Offered by the Kitsune Shrine altar during Full Moon Sea Danger 6 hunts.',
     dropRate: 'Shrine Altar Drop',
+    image: '/assets/aistudio/image_ba8dff3d.png',
     description: 'Luminous blue spirit ribbon providing massive +2,000 HP, passive regen, and Flash Step range.',
     buffs: [
       { stat: 'Movement Speed', value: '+30% Sprint Speed' },
@@ -782,6 +834,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Tiki Outpost · Beast Hunter Crafting',
     howToObtain: 'Crafted at the Beast Hunter NPC with 1 Leviathan Heart, 10 Leviathan Scales, and 20 Electric Wings.',
     dropRate: 'Craftable',
+    image: '/assets/aistudio/image_71e85b53.png',
     description: 'Crystallized crown of the abyssal Leviathan. Unmatched for Sea Event hunting and water sustain.',
     buffs: [
       { stat: 'Sea Event Damage', value: '+40% Damage vs Sea Events' },
@@ -798,6 +851,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Floating Turtle (Citizen Quest)',
     howToObtain: 'Complete the Citizen Quest chain (defeat Forest Pirates & Captain Elephant) on Floating Turtle.',
     dropRate: 'Quest Reward',
+    image: '/assets/aistudio/image_a84c4e44.png',
     description: 'Broad-brimmed plumed musketeer hat built for top Sword & Gun damage with cooldown reduction.',
     buffs: [
       { stat: 'Sword & Gun Damage', value: '+12.5% Damage' },
@@ -812,6 +866,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Cake Land (Sea of Treats)',
     howToObtain: 'Guaranteed drop from defeating either Cake Prince or Dough King inside the Cake Dimension.',
     dropRate: '100% Boss Drop',
+    image: '/assets/aistudio/image_3ac85f8a.png',
     description: 'Katakuri’s knitted scarf granting 10x Instinct vision radius, enemy HP readouts, and +15% Fruit/Sword power.',
     buffs: [
       { stat: 'Sword & Fruit Damage', value: '+15% Damage' },
@@ -827,6 +882,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Swan Mansion (Kingdom of Rose)',
     howToObtain: 'Defeat Don Swan inside Swan Mansion (unlock door by trading a $1M+ Fruit to Trevor).',
     dropRate: '2.5% Boss Drop',
+    image: '/assets/aistudio/image_41423ff1.png',
     description: 'Iconic rose-tinted shades offering balanced buffs to all damage, defense, cooldowns, speed, HP, and Energy.',
     buffs: [
       { stat: 'All Damage & Defense', value: '+8% Attack & +8% Defense' },
@@ -843,6 +899,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Tiki Outpost Crafting',
     howToObtain: 'Crafted at the Shark Hunter NPC with Terror Eyes, Mutant Teeth, Fool’s Gold, and Shark Teeth.',
     dropRate: 'Craftable',
+    image: '/assets/aistudio/image_73defca1.png',
     description: 'Serrated bone jaw mask granting Sword DPS, faster sword cooldowns, and Sea Event mitigation.',
     buffs: [
       { stat: 'Sword Damage', value: '+10% Sword Damage' },
@@ -859,6 +916,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Sea Castle (rip_indra Arena)',
     howToObtain: 'Guaranteed drop from defeating rip_indra (True Form) in Third Sea Castle.',
     dropRate: '100% Raid Drop',
+    image: '/assets/aistudio/image_fac94bd4.png',
     description: 'Golden winged helm granting huge Sword boost and required to inspect the Sealed King for Race V4.',
     buffs: [
       { stat: 'Sword Damage', value: '+15% Sword Damage' },
@@ -874,6 +932,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Dragon Dojo / Admin Archive',
     howToObtain: 'Exclusive draconic helm tier (unobtainable via standard drops; unreleased/admin archive item).',
     dropRate: 'Limited / Admin',
+    image: '/assets/aistudio/image_e8fee521.png',
     description: 'Ancient wyvern-horned battle helm packed with physical resistance and stamina recovery.',
     buffs: [
       { stat: 'Physical Defense', value: '+10% Melee / Sword / Gun Defense' },
@@ -889,6 +948,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Hot and Cold · Secret Lab',
     howToObtain: 'Dropped by Order (Trafalgar Law) in the Hot and Cold raid chamber (1,000 Frag microchip).',
     dropRate: '10–15% Raid Drop',
+    image: '/assets/aistudio/image_004625ef.png',
     description: 'Spotted white fur cap empowering Sword combos with -15% global cooldown reduction.',
     buffs: [
       { stat: 'Sword Damage', value: '+10% Sword Damage' },
@@ -908,6 +968,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: '50 Billion Visits Celebration Event',
     howToObtain: 'Claimed during the special Blox Fruits 50 Billion Visits celebration event.',
     dropRate: 'Limited Event',
+    image: '/assets/aistudio/image_885fa37f.png',
     description: 'Commemorative milestone party hat stacking double progression speed with bonus HP & Energy.',
     buffs: [
       { stat: 'XP & Mastery', value: '+10% XP & +10% Mastery' },
@@ -922,6 +983,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Celestial Realm / Seasonal Event',
     howToObtain: 'Obtained during the Celestial Event window via event gacha and boss milestones.',
     dropRate: 'Limited Event',
+    image: '/assets/aistudio/image_fc9bb3ea.png',
     description: 'Astral gilded helm granting global damage defense, cooldown reduction, and doubled Instinct range.',
     buffs: [
       { stat: 'All Defense', value: '+10% Damage Resistance' },
@@ -938,6 +1000,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Abyssal / Ocean Event Reward',
     howToObtain: 'Earned from special ocean treasure / coral event milestones during deep-sea hunts.',
     dropRate: 'Event / Sea Reward',
+    image: '/assets/aistudio/image_8ecb0abc.png',
     description: 'Radiant reef crown tailored for Fruit mains sailing dangerous waters.',
     buffs: [
       { stat: 'Blox Fruit Damage', value: '+10% Fruit Damage' },
@@ -953,6 +1016,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Halloween Event · Spooky Gacha',
     howToObtain: 'Rolled from the Spooky Gacha or Halloween boss drops using Candy Corn.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_2ed2e1f2.png',
     description: 'Pointed occult witch hat granting Fruit offensive boost alongside anti-Fruit shielding.',
     buffs: [
       { stat: 'Blox Fruit Damage', value: '+7% Fruit Damage' },
@@ -968,6 +1032,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Easter Event Island',
     howToObtain: 'Obtained during the Spring Easter Egg Hunt event via Egg baskets.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_248a72cc.png',
     description: 'Oversized cracked shell helmet giving strong +10% all-damage defense and +500 HP.',
     buffs: [
       { stat: 'All Defense', value: '+10% Damage Resistance' },
@@ -983,6 +1048,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: "Valentine's Event Shop",
     howToObtain: "Obtained during the Valentine's Event using Hearts currency.",
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_d77321fd.png',
     description: 'Festive pink top hat built for Cupid’s Heart farming and agile Fighting Style play.',
     buffs: [
       { stat: 'Movement Speed', value: '+14% Sprint Speed' },
@@ -999,6 +1065,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Dark Arena (Second Sea)',
     howToObtain: 'Spawn Darkbeard with Fist of Darkness at Dark Arena and defeat him (2% drop chance).',
     dropRate: '2% Raid Drop',
+    image: '/assets/aistudio/image_076dcc14.png',
     description: 'Darkbeard’s iconic black trenchcoat—one of the rarest drops in the game with elite Fruit damage.',
     buffs: [
       { stat: 'Blox Fruit Damage', value: '+15% Fruit Damage' },
@@ -1014,6 +1081,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Celestial / Summer Event Gacha',
     howToObtain: 'Obtained from limited Summer & Celestial event chests and token rewards.',
     dropRate: 'Limited Event',
+    image: '/assets/aistudio/image_68802203.png',
     description: 'Shimmering angelic cape delivering crisp movement speed alongside Melee & Fruit firepower.',
     buffs: [
       { stat: 'Movement Speed', value: '+30% Sprint Speed' },
@@ -1029,6 +1097,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Easter Event Shop',
     howToObtain: 'Unlocked during the Easter Event egg-collection challenges.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_e0cad8c7.png',
     description: 'Playful pastel cape adding +3 bonus Air Jumps and +50% sprinting speed for vertical mobility.',
     buffs: [
       { stat: 'Air Mobility', value: '+3 Extra Air Jumps' },
@@ -1044,6 +1113,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Winter / Christmas Event',
     howToObtain: 'Earned from Winter Event Gift drops and holiday challenges.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_282cd8ae.png',
     description: 'Icy armored helm favored by Gun users needing rapid strafing speed.',
     buffs: [
       { stat: 'Movement Speed', value: '+50% Sprint Speed' },
@@ -1059,6 +1129,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Halloween Event · Pumpkin Arena',
     howToObtain: 'Dropped by The Great Pumpkin raid boss during the Halloween Event.',
     dropRate: 'Seasonal Raid Drop',
+    image: '/assets/aistudio/image_76247d34.png',
     description: 'Tall jack-o’-lantern top hat tuned for Fruit spellcasters.',
     buffs: [
       { stat: 'Blox Fruit Damage', value: '+7% Fruit Damage' },
@@ -1074,6 +1145,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Winter Event · North Pole',
     howToObtain: 'Dropped inside Mythical Gift Boxes during the Christmas Winter Event.',
     dropRate: 'Seasonal Gift',
+    image: '/assets/aistudio/image_277b244d.png',
     description: 'Plush scarlet winter cape granting bonus Instinct dodge alongside Melee & Fruit power.',
     buffs: [
       { stat: 'Melee & Fruit Damage', value: '+10% Damage' },
@@ -1088,6 +1160,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Tiki Outpost · Beast Hunter Crafting',
     howToObtain: 'Crafted at the Beast Hunter NPC using 1 Leviathan Scale armor set, Mirror Fractal, and Electric Wings.',
     dropRate: 'Craftable',
+    image: '/assets/aistudio/image_6fb05191.png',
     description: 'Colossal defensive shield forged from Leviathan plates. Highest Sea Event & Water survivability in the game.',
     buffs: [
       { stat: 'Physical Defense', value: '+15% Melee / Sword / Gun Defense' },
@@ -1104,6 +1177,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Halloween Event · Spooky Gacha',
     howToObtain: 'Rolled from the Spooky Gacha during the Halloween Event using Candy Corn.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_017a3631.png',
     description: 'Ancient gilded mummy wraps boosting Candy Corn event farming alongside balanced combat buffs.',
     buffs: [
       { stat: 'Event Multiplier', value: '+5% Candy Corn Gain' },
@@ -1118,6 +1192,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Summer / Oni Event Shop',
     howToObtain: 'Obtained from Summer Event Oni Shop or event gacha drops.',
     dropRate: 'Limited Event',
+    image: '/assets/aistudio/image_d4ddd846.png',
     description: 'Horned demonic oni mask built for aggressive sustain with -10% skill cooldowns and rapid HP regen.',
     buffs: [
       { stat: 'Cooldown Reduction', value: '-10% All Cooldowns' },
@@ -1133,6 +1208,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Anniversary Celebration Event',
     howToObtain: 'Awarded to players logging in or redeeming anniversary milestones during celebration events.',
     dropRate: 'Limited Event',
+    image: '/assets/aistudio/image_986a4523.png',
     description: 'Festive celebration cone hat offering fast XP, Mastery progression, and +400 Energy.',
     buffs: [
       { stat: 'XP & Mastery', value: '+10% XP & +10% Mastery' },
@@ -1147,6 +1223,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Winter Event · North Pole',
     howToObtain: 'Obtained via the Winter Gacha and Candy shop during Christmas events.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_dbb5047a.png',
     description: 'Striped candy-cane battle helm tailored for Sword speedsters.',
     buffs: [
       { stat: 'Sword Damage', value: '+10% Sword Damage' },
@@ -1163,6 +1240,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Halloween Event · Spooky Gacha',
     howToObtain: 'Rolled at the Spooky Gacha during Halloween using Candy Corn.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_42429571.png',
     description: 'Glowing carved pumpkin mask amplifying Melee/Fruit damage alongside brisk speed.',
     buffs: [
       { stat: 'Melee & Fruit Damage', value: '+6% Damage' },
@@ -1179,6 +1257,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Winter / Christmas Gacha',
     howToObtain: 'Rolled from the Winter Event Holiday Gacha.',
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_2a87a911.png',
     description: 'Crisp crimson ribbon combining all-around defense with Fruit cooldown reduction.',
     buffs: [
       { stat: 'All Defense', value: '+7% Damage Resistance' },
@@ -1195,6 +1274,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: "Valentine's Event Gacha",
     howToObtain: "Obtained from the Valentine's Event Gacha using Hearts.",
     dropRate: 'Seasonal Event',
+    image: '/assets/aistudio/image_30a2f289.png',
     description: 'Bouquet accessory enhancing party Friendship XP grind speed alongside Fighting Style resistance.',
     buffs: [
       { stat: 'Friendship XP', value: '+20% Co-op EXP Boost' },
@@ -1210,6 +1290,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Special Celebration / Event Release',
     howToObtain: 'Obtained during limited special celebration / milestone reward events.',
     dropRate: 'Limited Event',
+    image: '/assets/aistudio/image_e984f200.png',
     description: 'Floating golden cloud halo granting a permanent passive +8% leveling EXP boost.',
     buffs: [
       { stat: 'Experience Gain', value: '+8% Permanent EXP Boost' },
@@ -1223,6 +1304,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Summer / Blood Event Shop',
     howToObtain: 'Earned from Summer Token / Sanguine event milestones and limited shop.',
     dropRate: 'Limited Event',
+    image: '/assets/aistudio/image_3bf0567c.png',
     description: 'Deep crimson cloak boosting Sword & Melee output with +500 Health and Melee mitigation.',
     buffs: [
       { stat: 'Melee & Sword Damage', value: '+7% Damage' },
@@ -1239,6 +1321,7 @@ export const BLOX_ACCESSORIES_DATABASE: BloxAccessory[] = [
     location: 'Sea Event / Abyssal Milestone',
     howToObtain: 'Obtained from elite Sea Danger events and deep-sea event progression.',
     dropRate: 'Event / Sea Reward',
+    image: '/assets/aistudio/image_14a27740.png',
     description: 'Razor-finned abyssal cape built for dominating Terrorsharks, Leviathans, and high-tier Sword/Melee fights.',
     buffs: [
       { stat: 'Movement Speed', value: '+30% Sprint Speed' },

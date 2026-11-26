@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { BLOX_FRUITS_DATABASE } from '../data/fruitsData';
 import { BloxFruit, FruitRarity, FruitCategory } from '../types/bloxfruits';
 import { sounds } from '../utils/audio';
-import { Search, Sparkles, ChevronDown, ChevronUp, LayoutGrid, Table2, ArrowUpDown } from 'lucide-react';
+import { Search, Sparkles, ChevronDown, ChevronUp, LayoutGrid, Table2, ArrowUpDown, Zap } from 'lucide-react';
 
 interface FruitDatabaseProps {
   onSelectFruit: (fruit: BloxFruit) => void;
@@ -377,14 +377,32 @@ export default function FruitDatabase({ onSelectFruit }: FruitDatabaseProps) {
                   {fruit.description}
                 </p>
 
-                {/* Awakening Badge */}
-                {fruit.awakening && (
-                  <div className="mt-3 p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 font-bold">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      Awakening Available
-                    </span>
-                    <span className="text-[11px] font-mono">{fruit.awakening.totalFrags.toLocaleString()} Frags</span>
+                {/* Awakening & Transformation Badges */}
+                {(fruit.awakening || fruit.hasTransformation) && (
+                  <div className="mt-3 space-y-2">
+                    {fruit.awakening && (
+                      <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center justify-between">
+                        <span className="flex items-center gap-1.5 font-bold">
+                          <Sparkles className="w-3.5 h-3.5" />
+                          Awakening Available
+                        </span>
+                        <span className="text-[11px] font-mono">{fruit.awakening.totalFrags.toLocaleString()} Frags</span>
+                      </div>
+                    )}
+
+                    {fruit.hasTransformation && (
+                      <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-300 flex items-center justify-between gap-2">
+                        <span className="flex items-center gap-1.5 font-bold shrink-0">
+                          <Zap className="w-3.5 h-3.5" />
+                          Transformation Available
+                        </span>
+                        {fruit.transformationName && (
+                          <span className="text-[11px] font-medium text-cyan-200/80 truncate">
+                            {fruit.transformationName}
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

@@ -97,6 +97,31 @@ export default function ItemDetailModal({ type, item, onClose }: ItemDetailModal
                   </div>
                 </div>
 
+                {/* Transformation */}
+                {f.hasTransformation && (
+                  <div className="p-4 rounded-2xl bg-cyan-950/25 border border-cyan-500/30 space-y-2.5 text-xs">
+                    <div className="flex justify-between items-center text-cyan-300 font-bold">
+                      <span>{f.transformationName || `${f.name} Transformation`}</span>
+                      <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/30">
+                        Transformable
+                      </span>
+                    </div>
+                    {f.transformationImage && (
+                      <div className="rounded-xl bg-slate-950/80 border border-slate-800 p-2 flex justify-center">
+                        <img
+                          src={f.transformationImage}
+                          alt={f.transformationName || `${f.name} Transformation`}
+                          referrerPolicy="no-referrer"
+                          className="max-h-56 object-contain rounded-lg"
+                        />
+                      </div>
+                    )}
+                    {f.transformationDescription && (
+                      <p className="text-slate-300 text-[11px] leading-relaxed">{f.transformationDescription}</p>
+                    )}
+                  </div>
+                )}
+
                 {/* Awakening */}
                 {f.awakening && (
                   <div className="p-4 rounded-2xl bg-purple-950/30 border border-purple-500/30 space-y-2 text-xs">
@@ -266,10 +291,22 @@ export default function ItemDetailModal({ type, item, onClose }: ItemDetailModal
             const a = item as BloxAccessory;
             return (
               <div className="space-y-5">
-                <div>
-                  <span className="text-xs font-bold text-rose-400 uppercase">{a.rarity} · Sea {a.sea}</span>
-                  <h3 className="text-2xl font-black text-white">{a.name}</h3>
-                  <p className="text-xs text-slate-400 mt-1">{a.location}</p>
+                <div className="flex items-center gap-4">
+                  {a.image && (
+                    <div className="w-16 h-16 rounded-2xl bg-rose-950/40 border border-rose-500/30 flex items-center justify-center p-1.5 shrink-0">
+                      <img
+                        src={a.image}
+                        alt={a.name}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(244,63,94,0.4)]"
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <span className="text-xs font-bold text-rose-400 uppercase">{a.rarity} · Sea {a.sea}</span>
+                    <h3 className="text-2xl font-black text-white">{a.name}</h3>
+                    <p className="text-xs text-slate-400 mt-1">{a.location}</p>
+                  </div>
                 </div>
 
                 <p className="text-xs text-slate-300 leading-relaxed">{a.description}</p>

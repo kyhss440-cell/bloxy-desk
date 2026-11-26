@@ -50,12 +50,12 @@ const SEA_MAP_CONFIGS: Record<1 | 2 | 3, SeaMapConfig> = {
     maxWidthClass: 'w-full',
   },
   3: {
-    image: null,
-    title: 'Third Sea Map Ready for Upload',
+    image: '/assets/aistudio/image_4be66a80.png',
+    title: 'Third Sea Interactive Route Map',
     subtitle:
-      'Send the Third Sea map screenshot whenever ready to unlock interactive route lines and island markers for Sea 3.',
+      'Lvl 1500 – 3000 Progression Path, Castle on the Sea Portal Hub & Endgame Sea Events',
     levelButtonLabel: 'Leveling Route (Lvl 1500–3000)',
-    hubButtonLabel: 'Hub Spokes',
+    hubButtonLabel: 'Portal Hub (Castle on the Sea)',
     maxWidthClass: 'w-full',
   },
 };
@@ -69,6 +69,7 @@ function getPinBadge(island: IslandLocation): string {
   if (!island.mapPosition) return `S${island.sea}`;
   if (island.id === 'marine_starter') return '1M';
   if (island.id === 'dark_arena') return 'R';
+  if (island.id === 'castle_on_the_sea') return 'H';
   return String(island.mapPosition.routeOrder);
 }
 
@@ -145,7 +146,12 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
   const mainRouteIslands = useMemo(
     () =>
       mappedIslands
-        .filter(isl => isl.id !== 'marine_starter' && isl.id !== 'dark_arena')
+        .filter(
+          isl =>
+            isl.id !== 'marine_starter' &&
+            isl.id !== 'dark_arena' &&
+            isl.id !== 'castle_on_the_sea'
+        )
         .sort(
           (a, b) =>
             (a.mapPosition?.routeOrder ?? 0) - (b.mapPosition?.routeOrder ?? 0)
@@ -175,7 +181,7 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
     if (activeMapSea === 2) {
       return mappedIslands.find(isl => isl.id === 'kingdom_of_rose');
     }
-    return undefined;
+    return mappedIslands.find(isl => isl.id === 'castle_on_the_sea');
   }, [mappedIslands, activeMapSea]);
 
   const currentStopIndex = useMemo(
@@ -371,7 +377,7 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
               name: 'Third Sea (The Overworld)',
               levels: 'Lvl 1500 – 3000',
               transition: 'Endgame: Leviathan · Kitsune Shrine · Draco V4',
-              highlights: 'Temple of Time V4 · CDK · Sanguine Art · Danger 6',
+              highlights: '8 Map Stops · Castle Hub · Temple of Time V4 · Danger 6',
               accent: 'text-purple-400',
             },
           ].map(stage => {
@@ -758,7 +764,8 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
                           ? 'bg-amber-500 text-slate-950 border-white ring-4 ring-amber-400/40 scale-115'
                           : isHubPin
                           ? 'bg-cyan-400 text-slate-950 border-white ring-4 ring-cyan-400/30 scale-110'
-                          : island.id === 'dark_arena'
+                          : island.id === 'dark_arena' ||
+                            island.id === 'castle_on_the_sea'
                           ? 'bg-purple-950/95 text-purple-200 border-purple-400 hover:bg-purple-500 hover:text-white hover:scale-110'
                           : 'bg-slate-950/90 text-amber-300 border-amber-400/80 hover:bg-amber-500 hover:text-slate-950 hover:border-white hover:scale-110'
                       }`}
@@ -793,6 +800,8 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
                   {selectedIsland.sea === activeMapSea && selectedIsland.mapPosition
                     ? selectedIsland.id === 'dark_arena'
                       ? 'Raid Hub · Dark Arena'
+                      : selectedIsland.id === 'castle_on_the_sea'
+                      ? 'Portal Hub · Castle on the Sea'
                       : `Stop ${getPinBadge(selectedIsland)} of ${totalMainStops}`
                     : `Sea ${selectedIsland.sea} Selected`}
                 </span>
@@ -890,6 +899,8 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
                 {selectedIsland.mapPosition
                   ? selectedIsland.id === 'dark_arena'
                     ? ' · Raid Hub'
+                    : selectedIsland.id === 'castle_on_the_sea'
+                    ? ' · Portal Hub'
                     : ` · Route Stop #${getPinBadge(selectedIsland)}`
                   : ''}
               </span>

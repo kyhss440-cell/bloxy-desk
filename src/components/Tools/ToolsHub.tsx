@@ -6,12 +6,13 @@ import BountyCalculator from './BountyCalculator';
 import LevelProgressTracker from './LevelProgressTracker';
 import RaceComparison from './RaceComparison';
 import SwordComparison from './SwordComparison';
+import StatPointsPlanner from './StatPointsPlanner';
 import { sounds } from '../../utils/audio';
-import { ArrowRightLeft, Layers, Dices, Skull, Target, GitCompare, Swords, Wrench } from 'lucide-react';
+import { ArrowRightLeft, Layers, Dices, Skull, Target, GitCompare, Swords, Wrench, Sliders } from 'lucide-react';
 
 export default function ToolsHub() {
   const [activeTool, setActiveTool] = useState<
-    'value' | 'tier' | 'gacha' | 'bounty' | 'level' | 'race' | 'sword'
+    'value' | 'tier' | 'gacha' | 'bounty' | 'level' | 'stats' | 'race' | 'sword'
   >('value');
 
   const tools = [
@@ -20,6 +21,7 @@ export default function ToolsHub() {
     { id: 'gacha', label: 'Dealer Gacha Roll', icon: <Dices className="w-4 h-4" /> },
     { id: 'bounty', label: 'Bounty Calculator', icon: <Skull className="w-4 h-4" /> },
     { id: 'level', label: 'Level Progress Tracker', icon: <Target className="w-4 h-4" /> },
+    { id: 'stats', label: 'Stat Points Planner', icon: <Sliders className="w-4 h-4" /> },
     { id: 'race', label: 'Race Comparison', icon: <GitCompare className="w-4 h-4" /> },
     { id: 'sword', label: 'Sword Comparison', icon: <Swords className="w-4 h-4" /> },
   ];
@@ -33,7 +35,7 @@ export default function ToolsHub() {
           Interactive Blox Fruits Utilities
         </h2>
         <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-          Seven powerful interactive tools built for pirates and marines: Trade Value Calculator with in-game 40% rule verification, customizable Tier Lists, animated Dealer Gacha Roll simulator, Bounty buff scaling, and comparative matrixes.
+          Eight powerful interactive tools built for pirates and marines: Trade Value Calculator with in-game 40% rule verification, customizable Tier Lists, animated Dealer Gacha Roll simulator, Bounty buff scaling, Stat Points Planner, and comparative matrixes.
         </p>
 
         {/* Tool Segmented Tabs */}
@@ -68,6 +70,7 @@ export default function ToolsHub() {
         {activeTool === 'gacha' && <FruitGachaPicker />}
         {activeTool === 'bounty' && <BountyCalculator />}
         {activeTool === 'level' && <LevelProgressTracker />}
+        {activeTool === 'stats' && <StatPointsPlanner />}
         {activeTool === 'race' && <RaceComparison />}
         {activeTool === 'sword' && <SwordComparison />}
       </div>

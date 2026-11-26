@@ -19,7 +19,7 @@ const RARITY_ORDER: Record<FruitRarity, number> = {
   Common: 1,
 };
 
-const RARITY_TABS: RarityFilter[] = ['All', 'Common', 'Uncommon', 'Rare', 'Legendary', 'Mythical'];
+const RARITY_TABS: RarityFilter[] = ['All'];
 
 export default function AccessoryDatabase({ onSelectAccessory }: AccessoryDatabaseProps) {
   const [search, setSearch] = useState('');
@@ -234,8 +234,17 @@ export default function AccessoryDatabase({ onSelectAccessory }: AccessoryDataba
             >
               <div>
                 <div className="flex items-start justify-between gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-2xl bg-rose-950/40 border border-rose-500/30 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
-                    👑
+                  <div className="w-12 h-12 rounded-2xl bg-rose-950/40 border border-rose-500/30 flex items-center justify-center text-2xl shrink-0 overflow-hidden group-hover:scale-110 transition-transform">
+                    {acc.image ? (
+                      <img
+                        src={acc.image}
+                        alt={acc.name}
+                        referrerPolicy="no-referrer"
+                        className="w-10 h-10 object-contain filter drop-shadow-[0_0_8px_rgba(244,63,94,0.35)]"
+                      />
+                    ) : (
+                      '👑'
+                    )}
                   </div>
 
                   <div className="flex flex-col items-end gap-1">
