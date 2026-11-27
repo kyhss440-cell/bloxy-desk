@@ -8,8 +8,8 @@ import GunDatabase from './components/GunDatabase';
 import AccessoryDatabase from './components/AccessoryDatabase';
 import BossDatabase from './components/BossDatabase';
 import IslandsGuide from './components/IslandsGuide';
-import SecretQuestsGuide from './components/SecretQuestsGuide';
 import FightingStylesDatabase from './components/FightingStylesDatabase';
+import CodesDatabase from './components/CodesDatabase';
 import ToolsHub from './components/Tools/ToolsHub';
 import GlobalSearchModal from './components/GlobalSearchModal';
 import ItemDetailModal from './components/ItemDetailModal';
@@ -19,17 +19,25 @@ import { BloxFruit, BloxSword, BloxGun, BloxAccessory, BloxBoss } from './types/
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
   const [islandsSea, setIslandsSea] = useState<'all' | 1 | 2 | 3>('all');
+  const [islandsSection, setIslandsSection] = useState<'map' | 'secrets'>('map');
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [selectedModalItem, setSelectedModalItem] = useState<{ type: string; item: unknown } | null>(null);
 
   const handleNavigate = (tab: string) => {
     if (tab === 'first-sea') {
       setIslandsSea(1);
+      setIslandsSection('map');
+      setActiveTab('islands');
+      return;
+    }
+    if (tab === 'secret-quests') {
+      setIslandsSection('secrets');
       setActiveTab('islands');
       return;
     }
     if (tab === 'islands') {
       setIslandsSea('all');
+      setIslandsSection('map');
     }
     setActiveTab(tab);
   };
@@ -95,11 +103,11 @@ export default function App() {
         )}
 
         {activeTab === 'islands' && (
-          <IslandsGuide initialSea={islandsSea} />
+          <IslandsGuide initialSea={islandsSea} initialSection={islandsSection} />
         )}
 
-        {activeTab === 'secret-quests' && (
-          <SecretQuestsGuide />
+        {activeTab === 'codes' && (
+          <CodesDatabase />
         )}
 
         {activeTab === 'tools' && (

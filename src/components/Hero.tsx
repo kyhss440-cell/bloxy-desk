@@ -1,11 +1,45 @@
+import { useEffect, useState } from 'react';
 import { sounds } from '../utils/audio';
 import { Search, Sparkles, Flame, Swords, Shield, Dices, ArrowRight, Zap, Skull, Compass } from 'lucide-react';
 import dracoShowcaseImg from '../assets/images/race_draco_showcase_clean.png';
-import sunnyHeroBannerImg from '../assets/images/sunny_hero_banner_1794533036889.jpg';
 import kitsuneShowcaseImg from '../assets/images/regenerated_image_1794538705883.png';
 import kitsuneFruitImg from '../assets/images/kitsune_fruit_showcase_1794311748109.jpg';
-import secretQuestsIconImg from '../assets/images/secret_quests_icon_1794891737076.jpg';
 import firstSeaIconImg from '../assets/images/first_sea_icon_1794891737755.jpg';
+
+const HERO_BANNERS = [
+  {
+    src: '/assets/aistudio/image_c4ed2d7c.png',
+    alt: 'Going Merry sailing across the ocean',
+    positionClass: 'object-center',
+  },
+  {
+    src: '/assets/aistudio/image_74154613.png',
+    alt: 'Red Hair Pirates crew standoff',
+    positionClass: 'object-[center_25%]',
+  },
+  {
+    src: '/assets/aistudio/image_0fef642e.png',
+    alt: 'Rooftop battle showdown',
+    positionClass: 'object-center',
+  },
+  {
+    src: '/assets/aistudio/image_d6e9bc56.png',
+    alt: 'Whitebeard Pirates fleet commanders',
+    positionClass: 'object-[center_15%]',
+  },
+  {
+    src: '/assets/aistudio/image_5af2c2a6.png',
+    alt: 'Straw Hat Pirates aboard the Thousand Sunny',
+    positionClass: 'object-center',
+  },
+  {
+    src: '/assets/aistudio/image_eecf76b6.png',
+    alt: 'Straw Hat Pirates farewell to Going Merry',
+    positionClass: 'object-[center_65%]',
+  },
+] as const;
+
+const HERO_SLIDE_INTERVAL_MS = 25000;
 
 interface HeroProps {
   onNavigate: (tab: string) => void;
@@ -13,16 +47,44 @@ interface HeroProps {
 }
 
 export default function Hero({ onNavigate, openSearch }: HeroProps) {
+  const [bannerIndex, setBannerIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    HERO_BANNERS.forEach((banner) => {
+      const img = new Image();
+      img.src = banner.src;
+    });
+
+    let swapTimeout: ReturnType<typeof setTimeout> | undefined;
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      swapTimeout = setTimeout(() => {
+        setBannerIndex((prev) => (prev + 1) % HERO_BANNERS.length);
+        setIsTransitioning(false);
+      }, 350);
+    }, HERO_SLIDE_INTERVAL_MS);
+
+    return () => {
+      clearInterval(interval);
+      if (swapTimeout) clearTimeout(swapTimeout);
+    };
+  }, []);
+
+  const currentBanner = HERO_BANNERS[bannerIndex];
+
   return (
     <div className="space-y-16 pb-12">
       {/* Cinematic Hero Section */}
-      <section className="relative min-h-[580px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col justify-end p-6 sm:p-12">
+      <section className="relative min-h-[580px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col justify-end p-6 sm:p-12 bg-[#050811]">
         {/* Background artwork */}
         <img
-          src={sunnyHeroBannerImg}
-          alt="Blox Fruits Pirate Adventure Ocean"
+          src={currentBanner.src}
+          alt={currentBanner.alt}
           referrerPolicy="no-referrer"
-          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-85"
+          className={`absolute inset-0 w-full h-full object-cover ${currentBanner.positionClass} filter brightness-85 transition-opacity duration-500 ${
+            isTransitioning ? 'opacity-20' : 'opacity-100'
+          }`}
         />
 
         {/* Ambient Gradient Scrims for WCAG AA readability */}
@@ -100,8 +162,8 @@ export default function Hero({ onNavigate, openSearch }: HeroProps) {
             { id: 'styles', label: 'Fighting Styles', icon: '🥋', image: '/assets/aistudio/fighting_style_clean.png', desc: 'Godhuman & Sanguine', color: 'border-purple-500/30 hover:border-purple-500' },
             { id: 'accessories', label: 'Accessories', icon: '👑', image: '/assets/aistudio/accessories_cape_clean.png', desc: 'Crown, Scarf, Masks', color: 'border-emerald-500/30 hover:border-emerald-500' },
             { id: 'bosses', label: 'Bosses', icon: '💀', image: '/assets/aistudio/bosses_clean.png', desc: 'Dough King, Leviathan', color: 'border-rose-500/30 hover:border-rose-500' },
-            { id: 'secret-quests', label: 'Secret Quests', icon: '📜', image: secretQuestsIconImg, desc: '39 Stars across 13 islands', color: 'border-amber-500/30 hover:border-amber-500' },
-            { id: 'islands', label: 'Three Seas', icon: '🧭', image: firstSeaIconImg, desc: 'Sea 1, 2 & 3 islands & routes', color: 'border-sky-500/30 hover:border-sky-500' },
+            { id: 'islands', label: 'Seas & Secret Quests', icon: '🧭', image: firstSeaIconImg, desc: '3 Seas, routes & 39 Stars', color: 'border-sky-500/30 hover:border-sky-500' },
+            { id: 'codes', label: 'Redeem Codes', icon: '🎟️', image: '/assets/aistudio/reward_codes_clean.png', desc: '2x EXP, Resets & Fun', color: 'border-emerald-500/30 hover:border-emerald-400' },
             { id: 'tools', label: 'Interactive Tools', icon: '🧮', image: '/assets/aistudio/tools_trade_clean.png', desc: 'Gacha, Values, Tiers', color: 'border-yellow-500/30 hover:border-yellow-500' },
           ].map((item) => (
             <button

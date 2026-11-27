@@ -33,7 +33,11 @@ const CATEGORIES: Array<CategoryFilter> = [
   'World & Raid Access',
 ];
 
-export default function SecretQuestsGuide() {
+interface SecretQuestsGuideProps {
+  embedded?: boolean;
+}
+
+export default function SecretQuestsGuide({ embedded = false }: SecretQuestsGuideProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('first_sea_stars');
   const [seaFilter, setSeaFilter] = useState<SeaFilter>('All');
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>('All');
@@ -230,10 +234,17 @@ export default function SecretQuestsGuide() {
             <span aria-hidden="true">·</span>
             <span>Level 3000 Progression</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-white font-heading tracking-tight flex items-center gap-3">
-            <ScrollText className="w-8 h-8 text-amber-400 shrink-0" />
-            <span>First Sea Secret Quests (39 Stars)</span>
-          </h1>
+          {embedded ? (
+            <h3 className="text-2xl sm:text-3xl font-black text-white font-heading tracking-tight flex items-center gap-3">
+              <ScrollText className="w-7 h-7 text-amber-400 shrink-0" />
+              <span>First Sea Secret Quests (39 Stars)</span>
+            </h3>
+          ) : (
+            <h1 className="text-3xl sm:text-4xl font-black text-white font-heading tracking-tight flex items-center gap-3">
+              <ScrollText className="w-8 h-8 text-amber-400 shrink-0" />
+              <span>First Sea Secret Quests (39 Stars)</span>
+            </h1>
+          )}
           <p className="text-sm text-slate-300 leading-relaxed">
             All 13 First Sea zones hide 3 secret quests worth 1 Star each (39 Stars total, +5 bonus levels each toward Level 3000). Completing 3/3 Stars on an island unlocks its Middle Town Teleporter fast-travel node and Advances Secrets Master progression.
           </p>

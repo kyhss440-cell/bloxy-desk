@@ -97,7 +97,7 @@ export const BLOX_ISLANDS_DATABASE: IslandLocation[] = [
       { name: 'Death King', role: 'Gambling NPC', description: 'Trade 50 bones for random rolls (Beli, Frags, Fruits, Hallow Essence).' },
       { name: 'Uzoth', role: 'Dragon Talon Master', description: 'Requires Fire Essence to unlock Dragon Talon.' },
     ],
-    mapPosition: { x: 53, y: 79, routeOrder: 5 },
+    mapPosition: { x: 78, y: 76, routeOrder: 5 },
   },
   {
     id: 'sea_of_treats',
@@ -138,7 +138,7 @@ export const BLOX_ISLANDS_DATABASE: IslandLocation[] = [
       { name: 'Shafi', role: 'Martial Master', description: 'Teaches Sanguine Art for 1 Leviathan Heart and 5M Beli.' },
       { name: 'Spy', role: 'Sea Navigator', description: 'Bribe with fragments to reset sea events or spawn Frozen Dimension.' },
     ],
-    mapPosition: { x: 78, y: 76, routeOrder: 7 },
+    mapPosition: { x: 53, y: 79, routeOrder: 7 },
   },
   {
     id: 'castle_on_the_sea',
@@ -380,14 +380,13 @@ export const BLOX_ISLANDS_DATABASE: IslandLocation[] = [
     recommendedLevel: '15 - 30',
     enemies: ['Monkey', 'Gorilla'],
     bosses: ['The Gorilla King (Lvl 20)', 'Awakened Gorilla King (Secret Star)', 'Saber Expert (Lvl 200)'],
-    secretTip: 'Home to Blox Fruit Gacha Cousin, the 5-button Saber Expert tomb, and 3 Island Secret Stars (Zipline Repair, Thieving Monkey, Awakened Gorilla King).',
+    secretTip: 'Home to the 5-button Saber Expert tomb and 3 Island Secret Stars (Zipline Repair, Thieving Monkey, Awakened Gorilla King).',
     notableFeatures: [
-      'Blox Fruit Dealer Cousin (Gacha fruit rolls)',
       '5-Button Saber Expert Relic Basement',
       '3-Star Island Secrets (Jungle Teleporter)',
+      'Zipline canopy crossing & Gorilla King arena',
     ],
     npcs: [
-      { name: 'Blox Fruit Gacha', role: 'Fruit Roll Dealer', description: 'Rolls random Blox Fruits for Beli based on player level.' },
       { name: 'Adventurer', role: 'Quest Giver', description: 'Assigns Monkey, Gorilla, and Gorilla King quests.' },
     ],
     mapPosition: { x: 48, y: 26, routeOrder: 2 },

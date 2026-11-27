@@ -13,12 +13,16 @@ import {
   ChevronRight,
   Map,
   ArrowRight,
+  ScrollText,
 } from 'lucide-react';
+import SecretQuestsGuide from './SecretQuestsGuide';
 
 type SeaSelection = 'all' | 1 | 2 | 3;
+type IslandsGuideSection = 'map' | 'secrets';
 
 interface IslandsGuideProps {
   initialSea?: SeaSelection;
+  initialSection?: IslandsGuideSection;
 }
 
 type RouteOverlayMode = 'leveling' | 'hub' | 'pins';
@@ -73,7 +77,11 @@ function getPinBadge(island: IslandLocation): string {
   return String(island.mapPosition.routeOrder);
 }
 
-export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) {
+export default function IslandsGuide({
+  initialSea = 'all',
+  initialSection = 'map',
+}: IslandsGuideProps) {
+  const [activeSection, setActiveSection] = useState<IslandsGuideSection>(initialSection);
   const [selectedSea, setSelectedSea] = useState<SeaSelection>(initialSea);
   const [activeMapSea, setActiveMapSea] = useState<1 | 2 | 3>(
     initialSea === 'all' ? 1 : initialSea
@@ -107,6 +115,10 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
       orderedAllIslands.find(isl => isl.sea === initialSea) || orderedAllIslands[0]
     );
   });
+
+  useEffect(() => {
+    setActiveSection(initialSection);
+  }, [initialSection]);
 
   useEffect(() => {
     setSelectedSea(initialSea);
@@ -319,38 +331,83 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
     <div className="space-y-6">
       {/* Header */}
       <div className="p-6 rounded-3xl bg-gradient-to-r from-slate-900 via-blue-950/20 to-slate-900 border border-slate-800 shadow-xl">
-        <h2 className="text-3xl font-black text-white flex items-center gap-3">
-          <Compass className="w-8 h-8 text-cyan-400" />
-          Three Seas World Map & Island Guide
-        </h2>
-        <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-          First, Second, and Third Seas unified in one voyage guide. Browse all {orderedAllIslands.length} locations from Level 1 to 3000 or filter down to an individual sea.
-        </p>
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-black text-white flex items-center gap-3">
+              <Compass className="w-8 h-8 text-cyan-400 shrink-0" />
+              Three Seas World Map & Secret Quests
+            </h2>
+            <p className="text-sm text-slate-400 mt-1 max-w-2xl">
+              Explore all {orderedAllIslands.length} islands from Level 1 to 3000, follow interactive sea progression routes, or track all 39 First Sea Secret Quests.
+            </p>
+          </div>
 
-        {/* Sea Tabs */}
-        <div className="mt-6 flex flex-wrap items-center gap-1.5 p-1.5 bg-slate-950 rounded-2xl border border-slate-800 max-w-3xl">
-          {(
-            [
-              { key: 'all', label: 'All Three Seas (1–3000)' },
-              { key: 1, label: 'Sea 1 (Lvl 1–700)' },
-              { key: 2, label: 'Sea 2 (Lvl 700–1500)' },
-              { key: 3, label: 'Sea 3 (Lvl 1500–3000)' },
-            ] as const
-          ).map(tab => (
+          {/* Unified Section Switcher: World Map vs Secret Quests */}
+          <div className="flex items-center gap-1.5 p-1.5 bg-slate-950 rounded-2xl border border-slate-800 self-start shrink-0">
             <button
-              key={String(tab.key)}
-              onClick={() => handleSeaChange(tab.key)}
-              className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 cursor-pointer ${
-                selectedSea === tab.key
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setActiveSection('map');
+              }}
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 whitespace-nowrap shrink-0 cursor-pointer ${
+                activeSection === 'map'
+                  ? 'bg-cyan-500 text-slate-950 font-extrabold shadow-md'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Map className="w-3.5 h-3.5" />
+              World Map & Islands
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setActiveSection('secrets');
+              }}
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 whitespace-nowrap shrink-0 cursor-pointer ${
+                activeSection === 'secrets'
                   ? 'bg-amber-500 text-slate-950 font-extrabold shadow-md'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              {tab.label}
+              <ScrollText className="w-3.5 h-3.5" />
+              Secret Quests (39 ★)
             </button>
-          ))}
+          </div>
         </div>
+
+        {/* Sea Tabs (when World Map is active) */}
+        {activeSection === 'map' && (
+          <div className="mt-6 flex flex-wrap items-center gap-1.5 p-1.5 bg-slate-950 rounded-2xl border border-slate-800 max-w-3xl">
+            {(
+              [
+                { key: 'all', label: 'All Three Seas (1–3000)' },
+                { key: 1, label: 'Sea 1 (Lvl 1–700)' },
+                { key: 2, label: 'Sea 2 (Lvl 700–1500)' },
+                { key: 3, label: 'Sea 3 (Lvl 1500–3000)' },
+              ] as const
+            ).map(tab => (
+              <button
+                key={String(tab.key)}
+                onClick={() => handleSeaChange(tab.key)}
+                className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 cursor-pointer ${
+                  selectedSea === tab.key
+                    ? 'bg-amber-500 text-slate-950 font-extrabold shadow-md'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
+
+      {activeSection === 'secrets' ? (
+        <SecretQuestsGuide embedded />
+      ) : (
+        <>
 
       {/* Unified Three Seas Progression Strip (shown when All Seas is active) */}
       {selectedSea === 'all' && (
@@ -1001,6 +1058,8 @@ export default function IslandsGuide({ initialSea = 'all' }: IslandsGuideProps) 
           </div>
         </div>
       </div>
+        </>
+      )}
     </div>
   );
 }

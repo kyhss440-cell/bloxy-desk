@@ -39,6 +39,7 @@ export default function Navbar({ activeTab, setActiveTab, openSearch }: NavbarPr
     { id: 'accessories', label: 'Accessories' },
     { id: 'bosses', label: 'Bosses' },
     { id: 'islands', label: 'Seas & Islands' },
+    { id: 'codes', label: 'Codes' },
     { id: 'tools', label: 'Tools' },
   ];
 

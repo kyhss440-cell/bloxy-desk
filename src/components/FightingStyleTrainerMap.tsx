@@ -45,7 +45,7 @@ const PIN_COORDINATES: Record<string, { x: string; y: string }> = {
   electric_claw: { x: '20%', y: '61%' }, // Floating Turtle (Previous Hero)
   godhuman: { x: '26%', y: '75%' }, // Floating Turtle Root Tunnel (Ancient Monk)
   dragon_talon: { x: '69%', y: '23%' }, // Hydra Island · Dragon Dojo (Uzoth)
-  sanguine_art: { x: '78%', y: '76%' }, // Tiki Outpost Basement (Shafi)
+  sanguine_art: { x: '53%', y: '79%' }, // Tiki Outpost Basement (Shafi)
 };
 
 function getThemeDotColor(theme: FightingStyle['theme']) {
