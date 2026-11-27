@@ -4,6 +4,7 @@ import { BloxSword, FruitRarity, SpecialCollectionKey } from '../types/bloxfruit
 import { sounds } from '../utils/audio';
 import SwordArtwork from './SwordArtwork';
 import SwordDetailPage from './SwordDetailPage';
+import SwordTierListMaker from './Tools/SwordTierListMaker';
 import {
   Swords,
   Search,
@@ -12,6 +13,8 @@ import {
   ArrowUpDown,
   ChevronRight,
   RotateCcw,
+  Trophy,
+  BookOpen,
 } from 'lucide-react';
 
 interface SwordDatabaseProps {
@@ -80,6 +83,7 @@ function getRarityAccent(rarity: FruitRarity): string {
 }
 
 export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDatabaseProps) {
+  const [activeView, setActiveView] = useState<'encyclopedia' | 'tier-list'>('encyclopedia');
   const [search, setSearch] = useState('');
   const [rarityFilter, setRarityFilter] = useState<FruitRarity | 'All'>('All');
   const [collectionFilter, setCollectionFilter] = useState<SpecialCollectionKey | 'all'>('all');
@@ -280,7 +284,42 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
           </div>
         </div>
 
+        {/* View Switcher: Encyclopedia vs Tier List */}
+        <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-950 border border-slate-800 w-fit">
+          <button
+            type="button"
+            onClick={() => {
+              sounds.playClick();
+              setActiveView('encyclopedia');
+            }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
+              activeView === 'encyclopedia'
+                ? 'bg-cyan-500 text-slate-950 font-extrabold shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Encyclopedia ({totalCount})</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              sounds.playClick();
+              setActiveView('tier-list');
+            }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
+              activeView === 'tier-list'
+                ? 'bg-amber-500 text-slate-950 font-extrabold shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Trophy className="w-3.5 h-3.5" />
+            <span>Tier List & Meta</span>
+          </button>
+        </div>
+
         {/* Search, Sort & Sea Controls */}
+        {activeView === 'encyclopedia' && (
         <div className="pt-4 border-t border-slate-800/80 space-y-4">
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
             <div className="relative flex-1">
@@ -390,7 +429,13 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
             </div>
           </div>
         </div>
+        )}
       </section>
+
+      {activeView === 'tier-list' ? (
+        <SwordTierListMaker onInspectSword={(s) => setActiveSwordId(s.id)} />
+      ) : (
+        <>
 
       {/* Results Count Bar */}
       <div className="flex items-center justify-between text-xs text-slate-400 px-1">
@@ -563,6 +608,8 @@ export default function SwordDatabase({ onSelectSword: _onSelectSword }: SwordDa
             );
           })}
         </div>
+      )}
+        </>
       )}
     </div>
   );

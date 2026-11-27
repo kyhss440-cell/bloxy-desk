@@ -7,17 +7,36 @@ import LevelProgressTracker from './LevelProgressTracker';
 import RaceComparison from './RaceComparison';
 import SwordComparison from './SwordComparison';
 import StatPointsPlanner from './StatPointsPlanner';
+import AccessoryTierListMaker from './AccessoryTierListMaker';
+import GunTierListMaker from './GunTierListMaker';
+import SwordTierListMaker from './SwordTierListMaker';
+import FightingStyleTierListMaker from './FightingStyleTierListMaker';
 import { sounds } from '../../utils/audio';
-import { ArrowRightLeft, Layers, Dices, Skull, Target, GitCompare, Swords, Wrench, Sliders } from 'lucide-react';
+import { ArrowRightLeft, Layers, Dices, Skull, Target, GitCompare, Swords, Wrench, Sliders, Crown, Crosshair, Flame } from 'lucide-react';
 
 export default function ToolsHub() {
   const [activeTool, setActiveTool] = useState<
-    'value' | 'tier' | 'gacha' | 'bounty' | 'level' | 'stats' | 'race' | 'sword'
+    | 'value'
+    | 'tier'
+    | 'acc_tier'
+    | 'gun_tier'
+    | 'sword_tier'
+    | 'style_tier'
+    | 'gacha'
+    | 'bounty'
+    | 'level'
+    | 'stats'
+    | 'race'
+    | 'sword'
   >('value');
 
   const tools = [
     { id: 'value', label: 'Trade Value Checker', icon: <ArrowRightLeft className="w-4 h-4" /> },
     { id: 'tier', label: 'Fruit Tier List', icon: <Layers className="w-4 h-4" /> },
+    { id: 'acc_tier', label: 'Accessory Tier List', icon: <Crown className="w-4 h-4" /> },
+    { id: 'gun_tier', label: 'Gun Tier List', icon: <Crosshair className="w-4 h-4" /> },
+    { id: 'sword_tier', label: 'Sword Tier List', icon: <Swords className="w-4 h-4" /> },
+    { id: 'style_tier', label: 'Fighting Style Tier List', icon: <Flame className="w-4 h-4" /> },
     { id: 'gacha', label: 'Dealer Gacha Roll', icon: <Dices className="w-4 h-4" /> },
     { id: 'bounty', label: 'Bounty Calculator', icon: <Skull className="w-4 h-4" /> },
     { id: 'level', label: 'Level Progress Tracker', icon: <Target className="w-4 h-4" /> },
@@ -35,7 +54,7 @@ export default function ToolsHub() {
           Interactive Blox Fruits Utilities
         </h2>
         <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-          Eight powerful interactive tools built for pirates and marines: Trade Value Calculator with in-game 40% rule verification, customizable Tier Lists, animated Dealer Gacha Roll simulator, Bounty buff scaling, Stat Points Planner, and comparative matrixes.
+          Interactive tools built for pirates and marines: Trade Value Calculator with in-game 40% rule verification, Fruit, Accessory, Gun, Sword & Fighting Style Tier Lists, Fruit Spinner simulator, Stat Points Planner, and comparative matrixes.
         </p>
 
         {/* Tool Segmented Tabs */}
@@ -67,6 +86,10 @@ export default function ToolsHub() {
       <div>
         {activeTool === 'value' && <ValueChecker />}
         {activeTool === 'tier' && <TierListMaker />}
+        {activeTool === 'acc_tier' && <AccessoryTierListMaker />}
+        {activeTool === 'gun_tier' && <GunTierListMaker />}
+        {activeTool === 'sword_tier' && <SwordTierListMaker />}
+        {activeTool === 'style_tier' && <FightingStyleTierListMaker />}
         {activeTool === 'gacha' && <FruitGachaPicker />}
         {activeTool === 'bounty' && <BountyCalculator />}
         {activeTool === 'level' && <LevelProgressTracker />}

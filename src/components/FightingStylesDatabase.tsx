@@ -6,9 +6,9 @@ import FightingStyleDetail from './FightingStyleDetail';
 import FightingStyleTrainerMap from './FightingStyleTrainerMap';
 import {
   CompareFightingStyles,
-  FightingStyleTierList,
   ProgressionAndTracker,
 } from './FightingStyleTools';
+import FightingStyleTierListMaker from './Tools/FightingStyleTierListMaker';
 import { sounds } from '../utils/audio';
 import {
   Search,
@@ -273,7 +273,7 @@ export default function FightingStylesDatabase() {
       )}
 
       {activeSubTab === 'tier-list' && (
-        <FightingStyleTierList onInspectStyle={handleInspectStyle} />
+        <FightingStyleTierListMaker onInspectStyle={handleInspectStyle} />
       )}
 
       {activeSubTab === 'progression' && (

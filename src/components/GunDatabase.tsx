@@ -3,6 +3,7 @@ import { BLOX_GUNS_DATABASE } from '../data/gunsData';
 import { BloxGun, FruitRarity } from '../types/bloxfruits';
 import { sounds } from '../utils/audio';
 import GunArtwork from './GunArtwork';
+import GunTierListMaker from './Tools/GunTierListMaker';
 import {
   Crosshair,
   Search,
@@ -12,6 +13,8 @@ import {
   ChevronRight,
   RotateCcw,
   MapPin,
+  Trophy,
+  BookOpen,
 } from 'lucide-react';
 
 interface GunDatabaseProps {
@@ -62,6 +65,7 @@ function getRarityAccent(rarity: FruitRarity): string {
 }
 
 export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
+  const [activeView, setActiveView] = useState<'encyclopedia' | 'tier-list'>('encyclopedia');
   const [search, setSearch] = useState('');
   const [rarityFilter, setRarityFilter] = useState<FruitRarity | 'All'>('All');
   const [ownedFilter, setOwnedFilter] = useState<CollectionStatusFilter>('all');
@@ -219,7 +223,43 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
           </div>
         </div>
 
+        {/* View Switcher: Encyclopedia vs Tier List */}
+        <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-950 border border-slate-800 w-fit">
+          <button
+            type="button"
+            onClick={() => {
+              sounds.playClick();
+              setActiveView('encyclopedia');
+            }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
+              activeView === 'encyclopedia'
+                ? 'bg-violet-500 text-slate-950 font-extrabold shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Encyclopedia ({totalCount})</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              sounds.playClick();
+              setActiveView('tier-list');
+            }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
+              activeView === 'tier-list'
+                ? 'bg-amber-500 text-slate-950 font-extrabold shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Trophy className="w-3.5 h-3.5" />
+            <span>Tier List & Meta</span>
+          </button>
+        </div>
+
         {/* Search, Sea Filter & Sort Bar */}
+        {activeView === 'encyclopedia' && (
+        <>
         <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -300,8 +340,14 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
             ))}
           </div>
         </div>
+        </>
+        )}
       </section>
 
+      {activeView === 'tier-list' ? (
+        <GunTierListMaker onInspectGun={onSelectGun} />
+      ) : (
+        <>
       {/* Results Count */}
       <div className="flex items-center justify-between text-xs text-slate-400 px-1">
         <span className="tabular-nums">
@@ -430,6 +476,8 @@ export default function GunDatabase({ onSelectGun }: GunDatabaseProps) {
             );
           })}
         </div>
+      )}
+        </>
       )}
     </div>
   );
