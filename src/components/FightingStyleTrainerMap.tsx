@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import trainerAtlasImg from '../assets/images/trainer_atlas_banner_1794656940772.jpg';
 import { BLOX_FIGHTING_STYLES } from '../data/fightingStylesData';
 import { FightingStyle } from '../types/bloxfruits';
 import { TrainerNpcPortrait } from './FightingStyleArtwork';
@@ -11,20 +10,42 @@ interface FightingStyleTrainerMapProps {
   onInspectStyle: (style: FightingStyle) => void;
 }
 
+type SeaTab = '1' | '2' | '3';
+
+const SEA_MAP_ASSETS: Record<SeaTab, { image: string; title: string }> = {
+  '1': {
+    image: '/assets/aistudio/image_ed875d74.png',
+    title: 'First Sea Map · Combat Trainers',
+  },
+  '2': {
+    image: '/assets/aistudio/image_206fc22b.png',
+    title: 'Second Sea Map · Combat Trainers',
+  },
+  '3': {
+    image: '/assets/aistudio/image_4be66a80.png',
+    title: 'Third Sea Map · Combat Trainers',
+  },
+};
+
 const PIN_COORDINATES: Record<string, { x: string; y: string }> = {
-  combat: { x: '13%', y: '34%' },
-  dark_step: { x: '22%', y: '52%' },
-  advanced_combat: { x: '28%', y: '36%' },
-  water_kung_fu: { x: '34%', y: '62%' },
-  electric: { x: '43%', y: '25%' },
-  dragon_breath: { x: '58%', y: '44%' },
-  superhuman: { x: '72%', y: '28%' },
-  death_step: { x: '84%', y: '40%' },
-  sharkman_karate: { x: '76%', y: '60%' },
-  electric_claw: { x: '48%', y: '74%' },
-  godhuman: { x: '56%', y: '82%' },
-  dragon_talon: { x: '66%', y: '72%' },
-  sanguine_art: { x: '36%', y: '80%' },
+  // First Sea (image_ed875d74.png)
+  combat: { x: '68%', y: '52%' }, // Pirate Starter
+  advanced_combat: { x: '50%', y: '45%' }, // Middle Town
+  dark_step: { x: '49%', y: '69%' }, // Pirate Village
+  electric: { x: '21%', y: '32%' }, // Lower Skylands
+  water_kung_fu: { x: '84%', y: '17%' }, // Underwater City
+
+  // Second Sea (image_206fc22b.png)
+  dragon_breath: { x: '82%', y: '77%' }, // Kingdom of Rose
+  superhuman: { x: '38%', y: '22%' }, // Snow Mountain
+  death_step: { x: '22%', y: '74%' }, // Ice Castle
+  sharkman_karate: { x: '50%', y: '51%' }, // Forgotten Island
+
+  // Third Sea (image_4be66a80.png)
+  electric_claw: { x: '20%', y: '61%' }, // Floating Turtle (Previous Hero)
+  godhuman: { x: '26%', y: '75%' }, // Floating Turtle Root Tunnel (Ancient Monk)
+  dragon_talon: { x: '69%', y: '23%' }, // Hydra Island · Dragon Dojo (Uzoth)
+  sanguine_art: { x: '78%', y: '76%' }, // Tiki Outpost Basement (Shafi)
 };
 
 function getThemeDotColor(theme: FightingStyle['theme']) {
@@ -43,19 +64,29 @@ export default function FightingStyleTrainerMap({
   initialStyleId,
   onInspectStyle,
 }: FightingStyleTrainerMapProps) {
-  const [seaFilter, setSeaFilter] = useState<'All' | '1' | '2' | '3'>('All');
-  const [selectedId, setSelectedId] = useState<string>(initialStyleId || 'godhuman');
+  const initialStyle = initialStyleId
+    ? BLOX_FIGHTING_STYLES.find((s) => s.id === initialStyleId)
+    : undefined;
+
+  const [seaFilter, setSeaFilter] = useState<SeaTab>(
+    initialStyle ? (String(initialStyle.sea) as SeaTab) : '1'
+  );
+  const [selectedId, setSelectedId] = useState<string>(
+    initialStyle?.id ||
+      BLOX_FIGHTING_STYLES.find((s) => s.sea === 1)?.id ||
+      'dark_step'
+  );
 
   const visibleTrainers = useMemo(() => {
-    return BLOX_FIGHTING_STYLES.filter(
-      (s) => seaFilter === 'All' || s.sea.toString() === seaFilter
-    );
+    return BLOX_FIGHTING_STYLES.filter((s) => s.sea.toString() === seaFilter);
   }, [seaFilter]);
 
   const activeTrainer =
     visibleTrainers.find((s) => s.id === selectedId) ||
     visibleTrainers[0] ||
     BLOX_FIGHTING_STYLES[0];
+
+  const currentSeaMap = SEA_MAP_ASSETS[seaFilter];
 
   return (
     <div className="space-y-6">
@@ -64,54 +95,52 @@ export default function FightingStyleTrainerMap({
         <div>
           <h2 className="text-2xl font-black text-white flex items-center gap-2.5">
             <Compass className="w-6 h-6 text-sky-400" />
-            Interactive Three-Sea Trainer Location Atlas
+            Fighting Style Trainer Map
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1">
-            Click any beacon on the atlas map or pick a trainer below to inspect NPC coordinates, exact island landmarks, walking directions, and costs.
+            Select 1 Sea, 2 Sea, or 3 Sea and click any trainer beacon on the map to inspect NPC coordinates, landmarks, and unlock costs.
           </p>
         </div>
 
         <div className="flex items-center gap-1 p-1 bg-[#04060d] rounded-xl border border-slate-800 text-xs self-start shrink-0">
-          {(['All', '1', '2', '3'] as const).map((sea) => (
+          {(['1', '2', '3'] as const).map((sea) => (
             <button
               key={sea}
+              type="button"
               onClick={() => {
                 setSeaFilter(sea);
+                const firstInSea = BLOX_FIGHTING_STYLES.find(
+                  (s) => s.sea.toString() === sea
+                );
+                if (firstInSea) setSelectedId(firstInSea.id);
                 sounds.playClick();
               }}
-              className={`px-3 py-1.5 rounded-lg font-semibold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
+              className={`px-3.5 py-1.5 rounded-lg font-semibold whitespace-nowrap shrink-0 cursor-pointer transition-colors ${
                 seaFilter === sea
                   ? 'bg-sky-500 text-slate-950 font-bold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              {sea === 'All' ? 'All Seas (13)' : `Sea ${sea}`}
+              {sea} Sea
             </button>
           ))}
         </div>
       </div>
 
-      {/* Interactive Atlas Map + Selected Trainer Spotlight */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+      {/* Interactive Sea Map + Selected Trainer Spotlight */}
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
         {/* Visual Interactive Map */}
-        <div className="xl:col-span-7 relative rounded-3xl overflow-hidden border border-slate-800 bg-[#04060d] min-h-[340px] sm:min-h-[420px]">
+        <div className="xl:col-span-7 relative rounded-3xl overflow-hidden border border-slate-800 bg-[#04060d] select-none">
           <img
-            src={trainerAtlasImg}
-            alt="Blox Fruits Three-Sea Fighting Style Trainer Atlas"
+            src={currentSeaMap.image}
+            alt={currentSeaMap.title}
             referrerPolicy="no-referrer"
-            className="absolute inset-0 w-full h-full object-cover opacity-55"
+            className="w-full h-auto block"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#04060d] via-[#04060d]/35 to-[#04060d]/60 pointer-events-none" />
-
-          {/* Region Reference Labels */}
-          <div className="relative z-10 flex items-center justify-between px-4 pt-4 text-[11px] font-bold uppercase tracking-wider text-slate-300 pointer-events-none">
-            <span>West · First Sea Islands</span>
-            <span>Center · Third Sea Sanctuary</span>
-            <span>North-East · Second Sea Peaks</span>
-          </div>
+          <div className="absolute inset-0 bg-slate-950/15 pointer-events-none" />
 
           {/* Interactive Trainer Beacons */}
-          <div className="relative z-20 w-full h-[300px] sm:h-[370px]">
+          <div className="absolute inset-0 z-20">
             {visibleTrainers.map((trainer) => {
               const pos = PIN_COORDINATES[trainer.id] || { x: '50%', y: '50%' };
               const isSelected = activeTrainer.id === trainer.id;
@@ -124,19 +153,21 @@ export default function FightingStyleTrainerMap({
                     setSelectedId(trainer.id);
                   }}
                   style={{ left: pos.x, top: pos.y }}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer focus:outline-none"
+                  className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer focus:outline-none flex flex-col items-center ${
+                    isSelected ? 'z-30' : 'z-10 hover:z-20'
+                  }`}
                   title={`${trainer.trainerGuide.npcName} (${trainer.name})`}
                 >
                   <span
                     className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 flex items-center justify-center transition-transform ${
-                      isSelected ? 'scale-125 ring-4 ring-white/25' : 'group-hover:scale-115'
+                      isSelected ? 'scale-125 ring-4 ring-white/30' : 'group-hover:scale-115'
                     } ${getThemeDotColor(trainer.theme)}`}
                   />
                   <span
-                    className={`mt-1 px-2 py-0.5 rounded-md text-[10px] font-bold whitespace-nowrap block transition-colors border ${
+                    className={`mt-1 px-2 py-0.5 rounded-md text-[10px] font-bold whitespace-nowrap block transition-colors border shadow-md ${
                       isSelected
-                        ? 'bg-slate-950/95 border-sky-400 text-white shadow-lg'
-                        : 'bg-[#04060d]/90 border-slate-800 text-slate-300 group-hover:text-white'
+                        ? 'bg-slate-950/95 border-sky-400 text-white'
+                        : 'bg-[#04060d]/90 border-slate-800 text-slate-200 group-hover:text-white'
                     }`}
                   >
                     {trainer.name}

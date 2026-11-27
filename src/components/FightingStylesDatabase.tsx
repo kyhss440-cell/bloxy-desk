@@ -61,7 +61,7 @@ function getCardGlowClasses(theme: FightingStyle['theme']) {
 export default function FightingStylesDatabase() {
   const [activeSubTab, setActiveSubTab] = useState<SubTab>('encyclopedia');
   const [selectedStyleId, setSelectedStyleId] = useState<string | null>(null);
-  const [trainerMapFocusId, setTrainerMapFocusId] = useState<string | null>('godhuman');
+  const [trainerMapFocusId, setTrainerMapFocusId] = useState<string | null>(null);
 
   // Search & Filter states
   const [searchQuery, setSearchQuery] = useState('');
